@@ -33,7 +33,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
     - nanopb (~> 2.30907.0)
-  - FireFast (0.1.0):
+  - FireFast (0.1.1):
     - FBSDKLoginKit
     - Firebase/Auth
     - GoogleSignIn
@@ -105,7 +105,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: 0a1df88dc32569db509e6269c3e4bf2a168e8ae8
   FirebaseCore: 0a43b7f1c5b36f3358cd703011ca4c7e0df55870
   FirebaseCoreDiagnostics: ee1184d51da3293335b83355aad20f537acc24cf
-  FireFast: c0316cff1edf42adc23fc59aba48305b5b77014f
+  FireFast: 9d88cf5cce9ec4766206888e7733020ec9651d12
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
