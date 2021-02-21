@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'FireFast_Example' do
+  pod 'FireFast', :path => '../'
+
+  target 'FireFast_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
