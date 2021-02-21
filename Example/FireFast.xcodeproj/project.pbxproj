@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		403CCED20F51BC7933D92224 /* Pods_FireFast_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01735E9EB18227E33F5F81A /* Pods_FireFast_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		9B8B1A1EEA7EFFE7C492042B /* Pods_FireFast_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFBB03891022DEEAD8282807 /* Pods_FireFast_Tests.framework */; };
+		753AEE2D5C65AB3A07B9EBCD /* libPods-FireFast_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 206919501584876C810622B5 /* libPods-FireFast_Tests.a */; };
+		7E24E727A61A0FC3CF525FD0 /* libPods-FireFast_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A247682CB9A4949A622B6EF8 /* libPods-FireFast_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +30,7 @@
 /* Begin PBXFileReference section */
 		00D83264C7C4E30D2376B200 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		161DBE0B5BA4068F768B3232 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		206919501584876C810622B5 /* libPods-FireFast_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FireFast_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EC8032789053895B32459A /* Pods-FireFast_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFast_Example.debug.xcconfig"; path = "Target Support Files/Pods-FireFast_Example/Pods-FireFast_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4903AB4AA223794F25D9DF24 /* Pods-FireFast_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFast_Example.release.xcconfig"; path = "Target Support Files/Pods-FireFast_Example/Pods-FireFast_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* FireFast_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireFast_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,11 +43,10 @@
 		607FACE51AFB9204008FA782 /* FireFast_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FireFast_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		A247682CB9A4949A622B6EF8 /* libPods-FireFast_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FireFast_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96096164FF79E40611F9EE6 /* FireFast.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FireFast.podspec; path = ../FireFast.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BB64607B424CF7DE1EC05220 /* Pods-FireFast_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFast_Tests.release.xcconfig"; path = "Target Support Files/Pods-FireFast_Tests/Pods-FireFast_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C01735E9EB18227E33F5F81A /* Pods_FireFast_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireFast_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE54338B2E374477A789352 /* Pods-FireFast_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFast_Tests.debug.xcconfig"; path = "Target Support Files/Pods-FireFast_Tests/Pods-FireFast_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		FFBB03891022DEEAD8282807 /* Pods_FireFast_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireFast_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				403CCED20F51BC7933D92224 /* Pods_FireFast_Example.framework in Frameworks */,
+				7E24E727A61A0FC3CF525FD0 /* libPods-FireFast_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B8B1A1EEA7EFFE7C492042B /* Pods_FireFast_Tests.framework in Frameworks */,
+				753AEE2D5C65AB3A07B9EBCD /* libPods-FireFast_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +153,8 @@
 		92377D89CE2097D0A9DC3237 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C01735E9EB18227E33F5F81A /* Pods_FireFast_Example.framework */,
-				FFBB03891022DEEAD8282807 /* Pods_FireFast_Tests.framework */,
+				A247682CB9A4949A622B6EF8 /* libPods-FireFast_Example.a */,
+				206919501584876C810622B5 /* libPods-FireFast_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,7 +170,6 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				32E1C4CFAC1E2907F1667383 /* [CP] Embed Pods Frameworks */,
 				59153FA36CB698AA8E43130F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -213,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 32SKEMQWAM;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 32SKEMQWAM;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -285,46 +286,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		32E1C4CFAC1E2907F1667383 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FireFast_Example/Pods-FireFast_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FireFast_Example/Pods-FireFast_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		59153FA36CB698AA8E43130F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,10 +293,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FireFast_Example/Pods-FireFast_Example-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +482,7 @@
 			baseConfigurationReference = 23EC8032789053895B32459A /* Pods-FireFast_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 32SKEMQWAM;
 				INFOPLIST_FILE = FireFast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -535,6 +499,7 @@
 			baseConfigurationReference = 4903AB4AA223794F25D9DF24 /* Pods-FireFast_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 32SKEMQWAM;
 				INFOPLIST_FILE = FireFast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -550,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEE54338B2E374477A789352 /* Pods-FireFast_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 32SKEMQWAM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -572,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB64607B424CF7DE1EC05220 /* Pods-FireFast_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 32SKEMQWAM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

@@ -18,7 +18,7 @@
   "platforms": {
     "ios": "13.0"
   },
-  "source_files": "FireFast/Classes/**/*",
+  "source_files": "FireFast/Src/**/*",
   "dependencies": {
     "Firebase/Auth": [
 
