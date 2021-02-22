@@ -10,10 +10,10 @@ import FirebaseAuth
 
 public struct AuthorizationResponseModel {
   
-  let email: String?
-  let name: String?
-  let isVerified: Bool
-  let userId: String?
-  let authResult: AuthDataResult?
+  public let email: String?
+  public let name: String?
+  public let isVerified: Bool
+  public let userId: String?
+  public let authResult: AuthDataResult?
   
 }
