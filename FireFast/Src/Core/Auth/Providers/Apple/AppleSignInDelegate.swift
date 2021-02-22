@@ -7,7 +7,7 @@
 
 import Foundation
 import AuthenticationServices
-import FirebaseAnalytics
+import FirebaseAuth
 
 class AppleSignInDelegate: NSObject,  ASAuthorizationControllerDelegate {
   

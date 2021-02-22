@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseAuth
 
 struct PasswordAthenticationUseCase: PasswordAuthProtocol {
 

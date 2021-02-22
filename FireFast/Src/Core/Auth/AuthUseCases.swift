@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseCore
 
 struct AuthUseCases: AuthUseCasesProtocol {
   func getSignInMethod(forType type: SignInMethodType) -> CommonAuthProtocol {

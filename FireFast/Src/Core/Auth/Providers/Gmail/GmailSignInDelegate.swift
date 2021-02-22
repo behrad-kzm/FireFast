@@ -7,7 +7,7 @@
 
 import UIKit
 import GoogleSignIn
-import Firebase
+import FirebaseAuth
 
 class GmailSignInDelegate: NSObject,  GIDSignInDelegate {
   

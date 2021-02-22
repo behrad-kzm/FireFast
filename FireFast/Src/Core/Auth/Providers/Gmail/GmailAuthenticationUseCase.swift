@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import Firebase
+import FirebaseCore
 import GoogleSignIn
 
 struct GmailAuthenticationUseCase: CommonAuthProtocol {

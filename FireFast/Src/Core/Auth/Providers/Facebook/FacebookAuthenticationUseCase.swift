@@ -8,7 +8,7 @@
 import Foundation
 import FBSDKCoreKit
 import FBSDKLoginKit
-import Firebase
+import FirebaseAuth
 import UIKit
 
 struct FacebookAuthenticationUseCase: CommonAuthProtocol {

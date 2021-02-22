@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireFast'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Working with the FireBase library without any effort.'
 
   s.description      = <<-DESC
@@ -23,7 +23,9 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
+  s.swift_version = '5'
   s.static_framework = true
+  
   s.source_files = 'FireFast/Src/**/*'
 
   s.dependency 'Firebase/Analytics'
