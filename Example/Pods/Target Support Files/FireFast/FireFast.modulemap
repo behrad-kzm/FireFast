@@ -1,4 +1,4 @@
-module FireFast {
+framework module FireFast {
   umbrella header "FireFast-umbrella.h"
 
   export *

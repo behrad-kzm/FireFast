@@ -8,17 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireFast'
-  s.version          = '0.1.2'
-  s.summary          = 'A short description of FireFast.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '0.1.3'
+  s.summary          = 'Working with the FireBase library without any effort.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+'The FireFast is a swift library that helps you to work with  Firebase services in a fast way. You only need to do the configurations to use these simple use-cases.'
                        DESC
 
   s.homepage         = 'https://github.com/behrad-kzm/FireFast'
@@ -29,11 +23,9 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '13.0'
-
+  s.static_framework = true
   s.source_files = 'FireFast/Src/**/*'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Firebase/Analytics'
   s.dependency 'Firebase/Auth'
   s.dependency 'GoogleSignIn'

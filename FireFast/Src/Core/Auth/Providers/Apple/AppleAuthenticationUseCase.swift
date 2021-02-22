@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Firebase
 import AuthenticationServices
 
 struct AppleAuthenticationUseCase: CommonAuthProtocol {

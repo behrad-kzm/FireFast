@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Firebase
+import FireBase
 
 public struct AuthorizationResponseModel {
   

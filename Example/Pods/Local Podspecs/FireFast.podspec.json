@@ -1,8 +1,8 @@
 {
   "name": "FireFast",
-  "version": "0.1.1",
-  "summary": "A short description of FireFast.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.1.2",
+  "summary": "Working with the FireBase library without any effort.",
+  "description": "'The FireFast is a swift library that helps you to work with  Firebase services in a fast way. You only need to do the configurations to use these simple use-cases.'",
   "homepage": "https://github.com/behrad-kzm/FireFast",
   "license": {
     "type": "MIT",
@@ -13,17 +13,24 @@
   },
   "source": {
     "git": "https://github.com/behrad-kzm/FireFast.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "13.0"
   },
+  "static_framework": true,
   "source_files": "FireFast/Src/**/*",
   "dependencies": {
+    "Firebase/Analytics": [
+
+    ],
     "Firebase/Auth": [
 
     ],
     "GoogleSignIn": [
+
+    ],
+    "Firebase/Firestore": [
 
     ],
     "FBSDKLoginKit": [

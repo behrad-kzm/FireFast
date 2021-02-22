@@ -1,4 +1,4 @@
-module Pods_FireFast_Example {
+framework module Pods_FireFast_Example {
   umbrella header "Pods-FireFast_Example-umbrella.h"
 
   export *
