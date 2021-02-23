@@ -11,7 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### Authentications
 
-There is a complete example in this repo so you can download the project and check it, BUT if your bussy/lazy AF check this:
+There is a complete example in this repo so you can download the project and check it, BUT if your busy or lazy AF check this:
 
 ```ruby
     let authenticator = FireFast.UseCaseProvider.makeAuthUseCases()
