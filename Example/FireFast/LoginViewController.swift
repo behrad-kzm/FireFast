@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   let authenticator = FireFast.UseCaseProvider.makeAuthUseCases()
-
+  
   ///Signing in the user with email and password
   @IBAction func signInClicked(_ sender: Any) {
     guard let email = emailTextField.text, let password = passwordTextField.text else {

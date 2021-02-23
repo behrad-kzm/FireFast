@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+  <key>FacebookAppID</key>
+  <string>874720916660756</string>
+  <key>FacebookDisplayName</key>
+  <string>FireFast</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -27,7 +31,17 @@
 			<string>GoogleURI</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>CHANGE.THIS</string>
+				<string>com.googleusercontent.apps.681603953097-ef49puvuuhuo2d6i3u09acklcj35ag05</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Facebook</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb874720916660756</string>
 			</array>
 		</dict>
 	</array>
