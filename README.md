@@ -43,7 +43,7 @@ before continue enable each sign-in method from the firebase console then follow
 - For Google sign-in you need to download 'GoogleService-Info.plist' from the Firebase console and create a url scheme in your project configurations [More](https://firebase.google.com/docs/auth/ios/google-signin#2_implement_google_sign-in).
 - For Apple sign-in you need to add a capability of Apple sign to your project [More](https://medium.com/@priya_talreja/sign-in-with-apple-using-swift-5cd8695a46b6)
 - For Facebook sign-in you need to go to the Developers.Facebook.com and create an app then fill required informations [More](https://developers.facebook.com/docs/facebook-login/ios).
-- For Password sign-in/sign-up there is  
+  
 
 ## Installation
 
