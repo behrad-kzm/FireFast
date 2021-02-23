@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseCore
+import FirebaseAuth
 
 struct AuthUseCases: AuthUseCasesProtocol {
   func getSignInMethod(forType type: SignInMethodType) -> CommonAuthProtocol {
@@ -26,5 +27,13 @@ struct AuthUseCases: AuthUseCasesProtocol {
   
   func getPhoneNumberSignInMethods() -> PhoneAuthProtocol {
     return PhoneAuthenticationUseCase()
+  }
+  
+  func getUser() -> User? {
+    return Auth.auth().currentUser
+  }
+  
+  func signOut() throws {
+    try Auth.auth().signOut()
   }
 }

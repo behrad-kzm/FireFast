@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 public protocol AuthUseCasesProtocol {
   
@@ -13,4 +14,6 @@ public protocol AuthUseCasesProtocol {
   func getPhoneNumberSignInMethods() -> PhoneAuthProtocol
   func getSignInMethod(forType: SignInMethodType) -> CommonAuthProtocol
 
+  func getUser() -> User?
+  func signOut() throws
 }
