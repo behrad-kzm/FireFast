@@ -13,4 +13,6 @@ public protocol AuthUseCasesProtocol {
   func getPhoneNumberSignInMethods() -> PhoneAuthProtocol
   func getSignInMethod(forType: SignInMethodType) -> CommonAuthProtocol
 
+  func getUser() -> AuthorizationResponseModel?
+  func signOut() throws
 }
