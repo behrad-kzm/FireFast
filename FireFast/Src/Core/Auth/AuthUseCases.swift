@@ -29,8 +29,11 @@ struct AuthUseCases: AuthUseCasesProtocol {
     return PhoneAuthenticationUseCase()
   }
   
-  func getUser() -> User? {
-    return Auth.auth().currentUser
+  func getUser() -> AuthorizationResponseModel? {
+    if let user = Auth.auth().currentUser {
+      return AuthorizationResponseModel(email: user.email, name: user.displayName, isVerified: user.isEmailVerified, userId: user.uid, authResult: nil)
+    }
+    return nil
   }
   
   func signOut() throws {
