@@ -1,5 +1,3 @@
-<img src="https://github.com/behrad-kzm/BEKDesing/blob/master/Images/BEKHeader.png">
-
 # FireFast
 
 [![CI Status](https://img.shields.io/travis/behrad-kzm/FireFast.svg?style=flat)](https://travis-ci.org/behrad-kzm/FireFast)
@@ -65,3 +63,5 @@ behrad-kzm, behrad.kzm@gmail.com
 ## License
 
 FireFast is available under the MIT license. See the LICENSE file for more info.
+
+<img src="https://github.com/behrad-kzm/BEKDesing/blob/master/Images/BEKHeader.png">
