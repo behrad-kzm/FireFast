@@ -242,7 +242,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3i-82-keS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1768.8" y="-127.28635682158921"/>
+            <point key="canvasLocation" x="1780" y="-490"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vao-lu-gsG">
+            <objects>
+                <viewController id="UMm-pe-CNL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xKH-bT-cWi"/>
+                        <viewControllerLayoutGuide type="bottom" id="RFo-5C-Z5a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Agw-Xj-sls">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PzR-3g-iDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="234"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="DSH-Q2-tpf">
@@ -250,6 +268,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kxh-fU-uIh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VW8-gb-bSK">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

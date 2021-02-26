@@ -29,7 +29,7 @@ class GmailSignInDelegate: NSObject,  GIDSignInDelegate {
         return
       }
       
-      let userInformation = AuthorizationResponseModel(email: signIn.currentUser.profile.email, name: "Gmail", isVerified: true, userId: signIn.currentUser.userID, authResult: result)
+      let userInformation = AuthorizationResponseModel(email: signIn.currentUser.profile.email, name: result?.user.displayName, isVerified: true, userId: signIn.currentUser.userID, authResult: result)
       self.onSuccess?(userInformation)
     }
 

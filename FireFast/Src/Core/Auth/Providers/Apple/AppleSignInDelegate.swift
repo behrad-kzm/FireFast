@@ -22,12 +22,12 @@ class AppleSignInDelegate: NSObject,  ASAuthorizationControllerDelegate {
   func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
     if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
       guard let appleIDToken = appleIDCredential.identityToken else {
-        onError?(NSError(domain: "Unable to fetch identity token", code: -10, userInfo: nil))
+        onError?(NSError(domain: "Unable to fetch identity token", code: ErrorCodes.Authorization.serializationFailure.code(), userInfo: nil))
         return
       }
       
       guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-        onError?(NSError(domain: "Unable to serialize token string", code: -10, userInfo: ["description": appleIDToken.debugDescription]))
+        onError?(NSError(domain: "Unable to serialize token string", code: ErrorCodes.Authorization.serializationFailure.code(), userInfo: ["description": appleIDToken.debugDescription]))
         return
       }
       
@@ -39,14 +39,14 @@ class AppleSignInDelegate: NSObject,  ASAuthorizationControllerDelegate {
           return
         }
         
-        let userInformation = AuthorizationResponseModel(email: result?.user.email, name: nil , isVerified: true, userId: result?.user.uid, authResult: result)
+        let userInformation = AuthorizationResponseModel(email: result?.user.email, name: result?.user.displayName , isVerified: true, userId: result?.user.uid, authResult: result)
         self.onSuccess?(userInformation)
         
       }
       return
     }
     
-    onError?(NSError(domain: "Unable to serialize credential", code: -10, userInfo: ["description": authorization.debugDescription]))
+    onError?(NSError(domain: "Unable to serialize credential", code: ErrorCodes.Authorization.serializationFailure.code(), userInfo: ["description": authorization.debugDescription]))
     
   }
 }

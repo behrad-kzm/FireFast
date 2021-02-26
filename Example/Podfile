@@ -5,9 +5,4 @@ platform :ios, '13.0'
 target 'FireFast_Example' do
   pod 'FireFast', :path => '../'
 
-  target 'FireFast_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

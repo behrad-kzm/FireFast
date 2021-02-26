@@ -22,7 +22,7 @@ struct PhoneAuthenticationUseCase: PhoneAuthProtocol {
         return
       }
       
-      onError?(NSError(domain: "The verificationID is empty or null", code: -12, userInfo: nil))
+      onError?(NSError(domain: "The verificationID is empty or null", code: ErrorCodes.Authorization.nullData.code(), userInfo: nil))
     }
   }
   

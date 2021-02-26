@@ -12,8 +12,6 @@ import FBSDKCoreKit
 
 public struct UseCaseProvider: CloudUseCaseProvider {
   
-  public init(){}
-  
   public static func application(application: UIApplication, didFinishLaunchingWithOptions launchingOptions: [UIApplication.LaunchOptionsKey : Any]?){
     ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchingOptions)
     FirebaseApp.configure()
@@ -30,4 +28,7 @@ public struct UseCaseProvider: CloudUseCaseProvider {
     return AuthUseCases()
   }
   
+  public static func makeFirestoreUseCases() -> FirestoreUseCasesProtocol {
+    return FirestoreUseCases()
+  }
 }

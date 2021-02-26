@@ -14,4 +14,5 @@ public protocol CloudUseCaseProvider {
   static func application(application: UIApplication, didFinishLaunchingWithOptions launchingOptions: [UIApplication.LaunchOptionsKey : Any]?)
   static func application(application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool
   static func makeAuthUseCases() -> AuthUseCasesProtocol
+  static func makeFirestoreUseCases() -> FirestoreUseCasesProtocol
 }

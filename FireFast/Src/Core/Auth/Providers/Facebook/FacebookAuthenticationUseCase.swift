@@ -24,7 +24,7 @@ struct FacebookAuthenticationUseCase: CommonAuthProtocol {
       }
       
       if (result?.isCancelled)!{
-        onError?(NSError(domain: "User canceled login proceed", code: -11, userInfo: nil))
+        onError?(NSError(domain: "User canceled login proceed", code: ErrorCodes.Authorization.proceedFailure.code(), userInfo: nil))
         return
       }
       
