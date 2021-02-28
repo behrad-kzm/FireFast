@@ -29,16 +29,14 @@ struct FacebookAuthenticationUseCase: CommonAuthProtocol {
       }
       
       let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-      Auth.auth().signIn(with: credential, completion: { (authResult, error) in
+      Auth.auth().signIn(with: credential, completion: { (result, error) in
         
         if let error = error {
           onError?(error)
           return
         }
-        let name = (result?.authenticationToken?.value(forKey: "_claims") as? NSObject)?.value(forKey: "_name") as? String
-        let email = (result?.authenticationToken?.value(forKey: "_claims") as? NSObject)?.value(forKey: "_email") as? String
-        let response = AuthorizationResponseModel(email: email, name: name, isVerified: true, userId: result?.token?.userID, authResult: authResult)
-        onSuccess(response)
+        let userInformation = AuthorizationResponseModel(email: result?.user.email, name: result?.user.displayName, isVerified: result?.user.isEmailVerified ?? true, userId: result?.user.uid, authResult: result)
+        onSuccess(userInformation)
       })
     }
   }
