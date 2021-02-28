@@ -39,8 +39,8 @@ class AppleSignInDelegate: NSObject,  ASAuthorizationControllerDelegate {
           return
         }
         
-        let userInformation = AuthorizationResponseModel(email: result?.user.email, name: result?.user.displayName , isVerified: true, userId: result?.user.uid, authResult: result)
-        self.onSuccess?(userInformation)
+        let userInformation = AuthorizationResponseModel(email: result?.user.email, name: result?.user.displayName, isVerified: result?.user.isEmailVerified ?? true, userId: result?.user.uid, authResult: result)
+        onSuccess(userInformation)
         
       }
       return
