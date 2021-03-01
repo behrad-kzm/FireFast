@@ -37,4 +37,8 @@ struct PasswordAthenticationUseCase: PasswordAuthProtocol {
       onSuccess(information)
     }
   }
+  
+  func reset() -> ResetPasswordUseCasesProtocol {
+    return ResetPasswordUseCases()
+  }
 }

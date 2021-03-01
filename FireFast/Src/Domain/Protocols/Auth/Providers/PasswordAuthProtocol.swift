@@ -13,4 +13,5 @@ public protocol PasswordAuthProtocol {
   
   func signInWith(email: String, password: String, onSuccess: @escaping (AuthorizationResponseModel)->(Void), onError: ((Error) -> (Void))?)
   
+  func reset() -> ResetPasswordUseCasesProtocol
 }

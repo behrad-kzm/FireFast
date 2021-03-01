@@ -134,6 +134,8 @@
 		040FBE80B3CB7C350886730F0DA45E31 /* field_mask.cc in Sources */ = {isa = PBXBuildFile; fileRef = F7D306DB11A4A4F3564CD83026579D04 /* field_mask.cc */; settings = {COMPILER_FLAGS = "$(inherited) -Wreorder -Werror=reorder -Wno-comma -fno-objc-arc"; }; };
 		0412F24B5193AFB30F9FB24A3E97CB61 /* FIRAuthDefaultUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A7F3F360B25F4488A81540179D21FE /* FIRAuthDefaultUIDelegate.m */; };
 		0419D6306FAB04AED1E51AD813445E7F /* lb_policy_registry.h in Copy src/core/ext/filters/client_channel Private Headers */ = {isa = PBXBuildFile; fileRef = 3AA86E6261BBAC6ACBDCE3F09DF1FA51 /* lb_policy_registry.h */; };
+		0446428825ECEB3200EBB98A /* ResetPasswordUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446428725ECEB3200EBB98A /* ResetPasswordUseCases.swift */; };
+		044642A425ECEB4C00EBB98A /* ResetPasswordUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044642A325ECEB4C00EBB98A /* ResetPasswordUseCasesProtocol.swift */; };
 		04495CB74CD5F7776835D17E737EED85 /* ecdsa_asn1.c in Sources */ = {isa = PBXBuildFile; fileRef = EE25434AD827A7690E83D5A525FA4488 /* ecdsa_asn1.c */; settings = {COMPILER_FLAGS = "-DOPENSSL_NO_ASM -GCC_WARN_INHIBIT_ALL_WARNINGS -w -fno-objc-arc"; }; };
 		0457F24CD16D2EF7B4BA54E0EAACB0E6 /* host_port.h in Headers */ = {isa = PBXBuildFile; fileRef = E48F4794699A9CEA05FCB6CBA491F204 /* host_port.h */; };
 		045F0850C8B90081765C8BE51B2A5FBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758845972B6C6DF9DC553CFC13A9B776 /* SystemConfiguration.framework */; };
@@ -9127,6 +9129,8 @@
 		03F7C4FC239F6596DC683A25EF543A72 /* str_replace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = str_replace.h; path = absl/strings/str_replace.h; sourceTree = "<group>"; };
 		04319457BE2DD2E45E0E03A7CB22380D /* bdp_estimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = bdp_estimator.h; path = src/core/lib/transport/bdp_estimator.h; sourceTree = "<group>"; };
 		043BED6609C119830358B32C4588D061 /* cpu_iphone.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = cpu_iphone.cc; path = src/core/lib/gpr/cpu_iphone.cc; sourceTree = "<group>"; };
+		0446428725ECEB3200EBB98A /* ResetPasswordUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUseCases.swift; sourceTree = "<group>"; };
+		044642A325ECEB4C00EBB98A /* ResetPasswordUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUseCasesProtocol.swift; sourceTree = "<group>"; };
 		044BB9D7CA661E9756A3D9D2D45AC24A /* alarm.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = alarm.cc; path = src/cpp/common/alarm.cc; sourceTree = "<group>"; };
 		046085C725E79356006C40FD /* FirestoreUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUseCases.swift; sourceTree = "<group>"; };
 		046085FE25E79589006C40FD /* FirestoreUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUseCasesProtocol.swift; sourceTree = "<group>"; };
@@ -12911,6 +12915,7 @@
 				BDAC80A47475D18F440B12EF7B97ADB9 /* CommonAuthProtocol.swift */,
 				B93C4C7840A866EB371367CAD2769042 /* PasswordAuthProtocol.swift */,
 				330E7B67F47C53053CC2F4BBAC2E6901 /* PhoneAuthProtocol.swift */,
+				044642A325ECEB4C00EBB98A /* ResetPasswordUseCasesProtocol.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -15399,6 +15404,7 @@
 			isa = PBXGroup;
 			children = (
 				092CD3ACB2E8B2F56E1BDAA6FA151BE2 /* PasswordAthenticationUseCase.swift */,
+				0446428725ECEB3200EBB98A /* ResetPasswordUseCases.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -21231,6 +21237,7 @@
 			files = (
 				F7E74AF64FCA3A5E92C751C9CA231D54 /* AppleAuthenticationUseCase.swift in Sources */,
 				DDD67159E68AF7E5402F324DA226A23E /* AppleSignInDelegate.swift in Sources */,
+				0446428825ECEB3200EBB98A /* ResetPasswordUseCases.swift in Sources */,
 				641690599EA5CD87798C6F75F6529787 /* AuthorizationResponseModel.swift in Sources */,
 				CF63B90C562B7352DBAB32ACD46B273A /* AuthUseCases.swift in Sources */,
 				C0498B22F553B923AF16E526F36DB48B /* AuthUseCasesProtocol.swift in Sources */,
@@ -21252,6 +21259,7 @@
 				F36DA243FEB9EC0F7917E59D6E611CF0 /* PhoneAuthProtocol.swift in Sources */,
 				66C9A982525E6E9D684DD7BE17FEADA0 /* SignInMethodType.swift in Sources */,
 				D48C71E390B18A6E4FA9CCE4DC4BB61A /* UseCaseProvider.swift in Sources */,
+				044642A425ECEB4C00EBB98A /* ResetPasswordUseCasesProtocol.swift in Sources */,
 				F6011B81139EFE6D5F19CEA313DAB719 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
