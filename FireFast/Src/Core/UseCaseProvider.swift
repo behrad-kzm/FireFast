@@ -13,8 +13,8 @@ import FBSDKCoreKit
 public struct UseCaseProvider: CloudUseCaseProvider {
   
   public static func application(application: UIApplication, didFinishLaunchingWithOptions launchingOptions: [UIApplication.LaunchOptionsKey : Any]?){
-    ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchingOptions)
     FirebaseApp.configure()
+    ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchingOptions)
   }
   
   public static func application(application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {

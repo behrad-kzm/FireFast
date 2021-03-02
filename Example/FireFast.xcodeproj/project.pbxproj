@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		041E9E7525E45B540088B056 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 041E9E7425E45B540088B056 /* GoogleService-Info.plist */; };
 		041E9E7B25E4647F0088B056 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E9E7A25E4647F0088B056 /* LoginViewController.swift */; };
+		0446460525EE9DCF00EBB98A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446460425EE9DCF00EBB98A /* UserModel.swift */; };
+		0446460825EE9E2F00EBB98A /* FirestoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446460725EE9E2F00EBB98A /* FirestoreViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -21,6 +23,8 @@
 		040AD56625E5772500922A58 /* FireFast_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireFast_Example.entitlements; sourceTree = "<group>"; };
 		041E9E7425E45B540088B056 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		041E9E7A25E4647F0088B056 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0446460425EE9DCF00EBB98A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		0446460725EE9E2F00EBB98A /* FirestoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreViewController.swift; sourceTree = "<group>"; };
 		161DBE0B5BA4068F768B3232 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		23EC8032789053895B32459A /* Pods-FireFast_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFast_Example.debug.xcconfig"; path = "Target Support Files/Pods-FireFast_Example/Pods-FireFast_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4903AB4AA223794F25D9DF24 /* Pods-FireFast_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFast_Example.release.xcconfig"; path = "Target Support Files/Pods-FireFast_Example/Pods-FireFast_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,8 +57,17 @@
 			isa = PBXGroup;
 			children = (
 				041E9E7A25E4647F0088B056 /* LoginViewController.swift */,
+				0446460725EE9E2F00EBB98A /* FirestoreViewController.swift */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		0446460325EE9DB900EBB98A /* MagicCodables */ = {
+			isa = PBXGroup;
+			children = (
+				0446460425EE9DCF00EBB98A /* UserModel.swift */,
+			);
+			name = MagicCodables;
 			sourceTree = "<group>";
 		};
 		1C89D10043F93A898C94DD6D /* Pods */ = {
@@ -91,6 +104,7 @@
 		607FACD21AFB9204008FA782 /* Example for FireFast */ = {
 			isa = PBXGroup;
 			children = (
+				0446460325EE9DB900EBB98A /* MagicCodables */,
 				041E9E7925E464560088B056 /* Scenes */,
 				041E9E7425E45B540088B056 /* GoogleService-Info.plist */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -306,6 +320,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				041E9E7B25E4647F0088B056 /* LoginViewController.swift in Sources */,
+				0446460525EE9DCF00EBB98A /* UserModel.swift in Sources */,
+				0446460825EE9E2F00EBB98A /* FirestoreViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

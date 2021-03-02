@@ -244,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="1780" y="-490"/>
         </scene>
-        <!--View Controller-->
+        <!--Firestore-->
         <scene sceneID="vao-lu-gsG">
             <objects>
-                <viewController id="UMm-pe-CNL" sceneMemberID="viewController">
+                <viewController id="UMm-pe-CNL" customClass="FirestoreViewController" customModule="FireFast_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xKH-bT-cWi"/>
                         <viewControllerLayoutGuide type="bottom" id="RFo-5C-Z5a"/>
@@ -255,8 +255,22 @@
                     <view key="view" contentMode="scaleToFill" id="Agw-Xj-sls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gA-dr-KJ2">
+                                <rect key="frame" x="133" y="556" width="109" height="30"/>
+                                <state key="normal" title="Try getting user"/>
+                                <connections>
+                                    <action selector="runQuery:" destination="UMm-pe-CNL" eventType="touchUpInside" id="Adh-Gj-i2t"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RFo-5C-Z5a" firstAttribute="top" secondItem="6gA-dr-KJ2" secondAttribute="bottom" constant="32" id="dzM-jK-DXm"/>
+                            <constraint firstItem="6gA-dr-KJ2" firstAttribute="centerX" secondItem="Agw-Xj-sls" secondAttribute="centerX" id="qHH-Am-XuS"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Firestore" image="opticaldiscdrive.fill" catalog="system" id="l94-ld-VVJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzR-3g-iDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,6 +288,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="H4o-yt-rfJ" kind="relationship" relationship="viewControllers" id="s6F-XY-uiM"/>
+                        <segue destination="UMm-pe-CNL" kind="relationship" relationship="viewControllers" id="XGo-62-Ykx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kug-Ub-miL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -288,6 +303,7 @@
         <image name="Google-Logo" width="480" height="480"/>
         <image name="Sms-Logo" width="96" height="96"/>
         <image name="flame" catalog="system" width="108" height="128"/>
+        <image name="opticaldiscdrive.fill" catalog="system" width="128" height="87"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

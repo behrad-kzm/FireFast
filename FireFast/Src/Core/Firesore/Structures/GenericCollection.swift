@@ -26,7 +26,8 @@ public struct GenericCollection<T: Codable> {
         onError?(error)
         return
       }
-      if let dictionary = document?.data(){
+      if let baseDictionary = document?.data(){
+        let dictionary = baseDictionary.castToCodables()
         if let model: T = dictionary.object(){
           onSuccess(model)
           return

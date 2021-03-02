@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.dependency 'Firebase/Analytics'
   s.dependency 'Firebase/Auth'
   s.dependency 'GoogleSignIn'
-  s.dependency 'Firebase/Firestore'
+  s.dependency 'FirebaseFirestoreSwift'
   s.dependency 'FBSDKLoginKit'
   s.pod_target_xcconfig = {
       'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
