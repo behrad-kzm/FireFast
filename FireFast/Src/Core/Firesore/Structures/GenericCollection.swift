@@ -73,11 +73,13 @@ public struct GenericCollection<T: Codable> {
     }
   }
   
-  public func upsert(document: T, withId id: String? = nil){
+  public func upsert(document: T, withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
     
     let dictionary = try! document.asDictionary()
     if let id = id {
-      base.document(id).setData(dictionary)
+      base.document(id).setData(dictionary) { (error) in
+        completionHandler?(error)
+      }
       return
     }
     base.addDocument(data: dictionary)
