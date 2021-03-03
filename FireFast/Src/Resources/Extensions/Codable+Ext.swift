@@ -20,14 +20,38 @@ extension Encodable {
 
 extension Dictionary where Key == String, Value: Any {
   
+  func unwrap<T: Codable>(type: T.Type, value: Value?) -> Value? {
+    if let val = value as? T, let locData = try? JSONEncoder().encode(val), let newValue = try? JSONSerialization.jsonObject(with: locData, options: .allowFragments) as? Value{
+      return newValue
+    }
+    return nil
+  }
+  
   func castToCodables() -> [String: Any] {
     
     var resultDictionary = self
     for key in resultDictionary.keys {
-      if let val = resultDictionary[key] as? GeoPoint, let locData = try? JSONEncoder().encode(val), let newValue = try? JSONSerialization.jsonObject(with: locData, options: .allowFragments) as? Value{
+      
+      if let newValue = unwrap(type: GeoPoint.self, value: resultDictionary[key]){
         resultDictionary[key] = newValue
+        continue
       }
-      //TODO
+      if let newValue = unwrap(type: Timestamp.self, value: resultDictionary[key]){
+        resultDictionary[key] = newValue
+        continue
+      }
+      
+      
+      
+      if let val = resultDictionary[key] as? DocumentReference {
+        let castedReference = val.path
+        resultDictionary[key] = castedReference as? Value
+      }
+      
+//      if let newValue = unwrap(type: DocumentReference.self, value: resultDictionary[key]){
+//        resultDictionary[key] = newValue
+//        continue
+//      }
     }
     return resultDictionary
   }

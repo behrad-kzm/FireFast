@@ -136,6 +136,21 @@
 		0419D6306FAB04AED1E51AD813445E7F /* lb_policy_registry.h in Copy src/core/ext/filters/client_channel Private Headers */ = {isa = PBXBuildFile; fileRef = 3AA86E6261BBAC6ACBDCE3F09DF1FA51 /* lb_policy_registry.h */; };
 		0446428825ECEB3200EBB98A /* ResetPasswordUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446428725ECEB3200EBB98A /* ResetPasswordUseCases.swift */; };
 		044642A425ECEB4C00EBB98A /* ResetPasswordUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044642A325ECEB4C00EBB98A /* ResetPasswordUseCasesProtocol.swift */; };
+		0446468725EECA9C00EBB98A /* ExplicitNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446467925EECA9000EBB98A /* ExplicitNull.swift */; };
+		0446468925EECA9C00EBB98A /* DocumentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446467B25EECA9100EBB98A /* DocumentID.swift */; };
+		0446468A25EECA9C00EBB98A /* FieldValue+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446467C25EECA9200EBB98A /* FieldValue+Encodable.swift */; };
+		0446468B25EECA9C00EBB98A /* WriteBatch+WriteEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446467D25EECA9300EBB98A /* WriteBatch+WriteEncodable.swift */; };
+		0446468C25EECA9C00EBB98A /* DocumentSnapshot+ReadDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446467E25EECA9300EBB98A /* DocumentSnapshot+ReadDecodable.swift */; };
+		0446468D25EECA9C00EBB98A /* CodablePassThroughTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446467F25EECA9400EBB98A /* CodablePassThroughTypes.swift */; };
+		0446468E25EECA9C00EBB98A /* Transaction+WriteEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446468025EECA9400EBB98A /* Transaction+WriteEncodable.swift */; };
+		0446468F25EECA9C00EBB98A /* CodableErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446468125EECA9500EBB98A /* CodableErrors.swift */; };
+		0446469025EECA9C00EBB98A /* ServerTimestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446468225EECA9600EBB98A /* ServerTimestamp.swift */; };
+		0446469125EECA9C00EBB98A /* Timestamp+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446468325EECA9900EBB98A /* Timestamp+Codable.swift */; };
+		0446469225EECA9C00EBB98A /* CollectionReference+WriteEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446468425EECA9A00EBB98A /* CollectionReference+WriteEncodable.swift */; };
+		0446469325EECA9C00EBB98A /* GeoPoint+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446468525EECA9B00EBB98A /* GeoPoint+Codable.swift */; };
+		0446469425EECA9C00EBB98A /* DocumentReference+WriteEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446468625EECA9B00EBB98A /* DocumentReference+WriteEncodable.swift */; };
+		044646B125EECBD300EBB98A /* FirestoreEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044646AF25EECBD100EBB98A /* FirestoreEncoder.swift */; };
+		044646B225EECBD300EBB98A /* FirestoreDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044646B025EECBD200EBB98A /* FirestoreDecoder.swift */; };
 		04495CB74CD5F7776835D17E737EED85 /* ecdsa_asn1.c in Sources */ = {isa = PBXBuildFile; fileRef = EE25434AD827A7690E83D5A525FA4488 /* ecdsa_asn1.c */; settings = {COMPILER_FLAGS = "-DOPENSSL_NO_ASM -GCC_WARN_INHIBIT_ALL_WARNINGS -w -fno-objc-arc"; }; };
 		0457F24CD16D2EF7B4BA54E0EAACB0E6 /* host_port.h in Headers */ = {isa = PBXBuildFile; fileRef = E48F4794699A9CEA05FCB6CBA491F204 /* host_port.h */; };
 		045F0850C8B90081765C8BE51B2A5FBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758845972B6C6DF9DC553CFC13A9B776 /* SystemConfiguration.framework */; };
@@ -9131,6 +9146,21 @@
 		043BED6609C119830358B32C4588D061 /* cpu_iphone.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = cpu_iphone.cc; path = src/core/lib/gpr/cpu_iphone.cc; sourceTree = "<group>"; };
 		0446428725ECEB3200EBB98A /* ResetPasswordUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUseCases.swift; sourceTree = "<group>"; };
 		044642A325ECEB4C00EBB98A /* ResetPasswordUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordUseCasesProtocol.swift; sourceTree = "<group>"; };
+		0446467925EECA9000EBB98A /* ExplicitNull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplicitNull.swift; sourceTree = "<group>"; };
+		0446467B25EECA9100EBB98A /* DocumentID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentID.swift; sourceTree = "<group>"; };
+		0446467C25EECA9200EBB98A /* FieldValue+Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FieldValue+Encodable.swift"; sourceTree = "<group>"; };
+		0446467D25EECA9300EBB98A /* WriteBatch+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WriteBatch+WriteEncodable.swift"; sourceTree = "<group>"; };
+		0446467E25EECA9300EBB98A /* DocumentSnapshot+ReadDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentSnapshot+ReadDecodable.swift"; sourceTree = "<group>"; };
+		0446467F25EECA9400EBB98A /* CodablePassThroughTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodablePassThroughTypes.swift; sourceTree = "<group>"; };
+		0446468025EECA9400EBB98A /* Transaction+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+WriteEncodable.swift"; sourceTree = "<group>"; };
+		0446468125EECA9500EBB98A /* CodableErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableErrors.swift; sourceTree = "<group>"; };
+		0446468225EECA9600EBB98A /* ServerTimestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTimestamp.swift; sourceTree = "<group>"; };
+		0446468325EECA9900EBB98A /* Timestamp+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Timestamp+Codable.swift"; sourceTree = "<group>"; };
+		0446468425EECA9A00EBB98A /* CollectionReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionReference+WriteEncodable.swift"; sourceTree = "<group>"; };
+		0446468525EECA9B00EBB98A /* GeoPoint+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeoPoint+Codable.swift"; sourceTree = "<group>"; };
+		0446468625EECA9B00EBB98A /* DocumentReference+WriteEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentReference+WriteEncodable.swift"; sourceTree = "<group>"; };
+		044646AF25EECBD100EBB98A /* FirestoreEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreEncoder.swift; sourceTree = "<group>"; };
+		044646B025EECBD200EBB98A /* FirestoreDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreDecoder.swift; sourceTree = "<group>"; };
 		044BB9D7CA661E9756A3D9D2D45AC24A /* alarm.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = alarm.cc; path = src/cpp/common/alarm.cc; sourceTree = "<group>"; };
 		046085C725E79356006C40FD /* FirestoreUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUseCases.swift; sourceTree = "<group>"; };
 		046085FE25E79589006C40FD /* FirestoreUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreUseCasesProtocol.swift; sourceTree = "<group>"; };
@@ -12920,6 +12950,28 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		0446467825EEC98D00EBB98A /* Codables */ = {
+			isa = PBXGroup;
+			children = (
+				044646B025EECBD200EBB98A /* FirestoreDecoder.swift */,
+				044646AF25EECBD100EBB98A /* FirestoreEncoder.swift */,
+				0446468125EECA9500EBB98A /* CodableErrors.swift */,
+				0446467F25EECA9400EBB98A /* CodablePassThroughTypes.swift */,
+				0446468425EECA9A00EBB98A /* CollectionReference+WriteEncodable.swift */,
+				0446467B25EECA9100EBB98A /* DocumentID.swift */,
+				0446468625EECA9B00EBB98A /* DocumentReference+WriteEncodable.swift */,
+				0446467E25EECA9300EBB98A /* DocumentSnapshot+ReadDecodable.swift */,
+				0446467925EECA9000EBB98A /* ExplicitNull.swift */,
+				0446467C25EECA9200EBB98A /* FieldValue+Encodable.swift */,
+				0446468525EECA9B00EBB98A /* GeoPoint+Codable.swift */,
+				0446468225EECA9600EBB98A /* ServerTimestamp.swift */,
+				0446468325EECA9900EBB98A /* Timestamp+Codable.swift */,
+				0446468025EECA9400EBB98A /* Transaction+WriteEncodable.swift */,
+				0446467D25EECA9300EBB98A /* WriteBatch+WriteEncodable.swift */,
+			);
+			path = Codables;
+			sourceTree = "<group>";
+		};
 		046085C625E79172006C40FD /* Firesore */ = {
 			isa = PBXGroup;
 			children = (
@@ -15488,6 +15540,7 @@
 		77B3B3BA09C944148CE55FC2BBE0CC6F /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				0446467825EEC98D00EBB98A /* Codables */,
 				046086BC25E7E4B5006C40FD /* Auth */,
 			);
 			path = Entities;
@@ -21237,23 +21290,38 @@
 			files = (
 				F7E74AF64FCA3A5E92C751C9CA231D54 /* AppleAuthenticationUseCase.swift in Sources */,
 				DDD67159E68AF7E5402F324DA226A23E /* AppleSignInDelegate.swift in Sources */,
+				044646B125EECBD300EBB98A /* FirestoreEncoder.swift in Sources */,
+				0446469425EECA9C00EBB98A /* DocumentReference+WriteEncodable.swift in Sources */,
 				0446428825ECEB3200EBB98A /* ResetPasswordUseCases.swift in Sources */,
 				641690599EA5CD87798C6F75F6529787 /* AuthorizationResponseModel.swift in Sources */,
 				CF63B90C562B7352DBAB32ACD46B273A /* AuthUseCases.swift in Sources */,
 				C0498B22F553B923AF16E526F36DB48B /* AuthUseCasesProtocol.swift in Sources */,
 				FD265B859AE302FD5ABE4BC9FBA4968E /* CloudUseCaseProvider.swift in Sources */,
 				D74BE83C86B12F5712FC2B7336663A81 /* CommonAuthProtocol.swift in Sources */,
+				0446468C25EECA9C00EBB98A /* DocumentSnapshot+ReadDecodable.swift in Sources */,
 				0460864F25E7967C006C40FD /* FirestoreUseCasesProtocol.swift in Sources */,
+				0446468B25EECA9C00EBB98A /* WriteBatch+WriteEncodable.swift in Sources */,
+				0446469125EECA9C00EBB98A /* Timestamp+Codable.swift in Sources */,
 				0460872A25E7E8C7006C40FD /* Codable+Ext.swift in Sources */,
 				4199BB9A058CE4D3D080DAFBB8539078 /* FacebookAuthenticationUseCase.swift in Sources */,
 				046086BD25E7E4DE006C40FD /* GenericCollection.swift in Sources */,
+				0446468E25EECA9C00EBB98A /* Transaction+WriteEncodable.swift in Sources */,
 				861E559765D8C4936C4285EFF132EF4B /* FireFast-dummy.m in Sources */,
+				0446469225EECA9C00EBB98A /* CollectionReference+WriteEncodable.swift in Sources */,
 				0460884425E83F13006C40FD /* AutoPaginator.swift in Sources */,
+				0446469325EECA9C00EBB98A /* GeoPoint+Codable.swift in Sources */,
+				0446468A25EECA9C00EBB98A /* FieldValue+Encodable.swift in Sources */,
+				0446468F25EECA9C00EBB98A /* CodableErrors.swift in Sources */,
+				044646B225EECBD300EBB98A /* FirestoreDecoder.swift in Sources */,
+				0446468925EECA9C00EBB98A /* DocumentID.swift in Sources */,
 				1C10152E710C8AF551FCB2E551E40A04 /* GmailAuthenticationUseCase.swift in Sources */,
 				6572E3EFEA78A3A36AD7ED115BF4E77C /* GmailSignInDelegate.swift in Sources */,
 				0460861A25E79675006C40FD /* FirestoreUseCases.swift in Sources */,
+				0446469025EECA9C00EBB98A /* ServerTimestamp.swift in Sources */,
 				F7F7D8C6D803331FFD63FE5186A21744 /* PasswordAthenticationUseCase.swift in Sources */,
 				DDA8EA08FA440B9E2A09CE0D121C7EB9 /* PasswordAuthProtocol.swift in Sources */,
+				0446468725EECA9C00EBB98A /* ExplicitNull.swift in Sources */,
+				0446468D25EECA9C00EBB98A /* CodablePassThroughTypes.swift in Sources */,
 				3A899154B7B8A9E1E8D7AB6A63BEEF8F /* PhoneAuthenticationUseCase.swift in Sources */,
 				048891A225E94E3000198AD4 /* ErrorCodes.swift in Sources */,
 				F36DA243FEB9EC0F7917E59D6E611CF0 /* PhoneAuthProtocol.swift in Sources */,
