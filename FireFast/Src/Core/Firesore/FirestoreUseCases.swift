@@ -16,4 +16,7 @@ struct FirestoreUseCases: FirestoreUseCasesProtocol {
     return GenericCollection<T>(base: database.collection(collectionName))
   }
   
+  func getDictionaryFrom<T: Codable>(codable: T) throws -> [String: Any] {
+    return try codable.asDictionary().castToFirebase()
+  }
 }

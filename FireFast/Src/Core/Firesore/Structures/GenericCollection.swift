@@ -20,7 +20,6 @@ public struct GenericCollection<T: Codable> {
   }
   
   public func get(documentId id: String, onSuccess: @escaping ((T?) -> Void), onError: ((Error) -> Void)?){
-    
     base.document(id).getDocument { (document, error) in
       if let error = error{
         onError?(error)
@@ -42,7 +41,6 @@ public struct GenericCollection<T: Codable> {
   
   public func getAll( onSuccess: @escaping (([T]) -> Void), onError: ((Error) -> Void)?) {
     base.getDocuments() { (querySnapshot, error) in
-      
       if let error = error{
         onError?(error)
         return
@@ -56,26 +54,20 @@ public struct GenericCollection<T: Codable> {
   }
   
   public func find(query: @escaping (CollectionReference) -> Query, onSuccess: @escaping (([T]) -> Void), onError: ((Error) -> Void)?) {
-    
     query(base).addSnapshotListener { (querySnapshot, error) in
-      
       if let error = error{
         onError?(error)
         return
       }
-
       let result = querySnapshot!.documents.compactMap { (document) -> T? in
         return document.data().object()
       }
-      
       onSuccess(result)
       return
     }
   }
   
-  public func upsert(document: T, withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
-    
-    let dictionary = try! document.asDictionary().castToFirebase()
+  public func upsert(dictionary: [String: Any], withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
     if let id = id {
       base.document(id).setData(dictionary) { (error) in
         completionHandler?(error)
@@ -83,6 +75,16 @@ public struct GenericCollection<T: Codable> {
       return
     }
     base.addDocument(data: dictionary)
+  }
+  
+  public func upsert(document: T, withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
+    let dictionary = try! document.asDictionary().castToFirebase()
+    upsert(dictionary: dictionary, completionHandler: completionHandler)
+  }
+  
+  public func update(document: T, forDocumentId id: String, completionHandler: ((Error?) -> Void)?){
+    let fields = try! document.asDictionary().castToFirebase()
+    update(fields: fields, forDocumentId: id, completionHandler: completionHandler)
   }
   
   public func update(fields: [String: Any], forDocumentId id: String, completionHandler: ((Error?) -> Void)?){
@@ -107,7 +109,4 @@ public struct GenericCollection<T: Codable> {
        completionHandler?(err)
     }
   }
-  
-  
 }
-
