@@ -8,7 +8,7 @@
 
 import UIKit
 import FireFast
-
+import FirebaseFirestore
 class FirestoreViewController: UIViewController {
     
   override func viewDidLoad() {
@@ -23,5 +23,11 @@ class FirestoreViewController: UIViewController {
     } onError: { (error) in
       print(error)
     }
+  }
+  @IBAction func setQuery(_ sender: Any) {
+    let collection = FireFast.UseCaseProvider.makeFirestoreUseCases().collection(forType: UserModel.self, collectionName: "users")
+    collection.upsert(document: UserModel(currentLocation: GeoPoint(latitude: 37, longitude: 53), name: "Behrad", birthDate: Timestamp(seconds: Int64(Date.timeIntervalSinceReferenceDate), nanoseconds: 0), email: "bez@bezbes.com", path: "/users/test"), completionHandler: { (error) in
+      print("BOOOOK", error)
+    })
   }
 }

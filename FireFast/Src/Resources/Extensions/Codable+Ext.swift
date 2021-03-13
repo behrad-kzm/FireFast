@@ -41,17 +41,42 @@ extension Dictionary where Key == String, Value: Any {
         continue
       }
       
-      
-      
       if let val = resultDictionary[key] as? DocumentReference {
         let castedReference = val.path
         resultDictionary[key] = castedReference as? Value
       }
+
+    }
+    return resultDictionary
+  }
+  
+  func castToFirebase() -> [String: Any] {
+    
+    var resultDictionary = self
+    for key in resultDictionary.keys {
+      guard let currentValue = resultDictionary[key] as? [String: Any] else {
+        continue
+      }
       
-//      if let newValue = unwrap(type: DocumentReference.self, value: resultDictionary[key]){
-//        resultDictionary[key] = newValue
-//        continue
-//      }
+      if let newValue: GeoPoint = currentValue.object(), let value = newValue as? Value {
+        resultDictionary[key] = value
+        continue
+      }
+      
+      if let newValue: Timestamp = currentValue.object(), let value = newValue as? Value {
+        resultDictionary[key] = value
+        continue
+      }
+      
+      if let newValue = resultDictionary[key] as? DocumentReference {
+        let castedReference = newValue.path
+        resultDictionary[key] = castedReference as? Value
+        continue
+      }
+      
+      if let newValue = currentValue.castToFirebase() as? Value {
+        resultDictionary[key] = newValue
+      }
     }
     return resultDictionary
   }
