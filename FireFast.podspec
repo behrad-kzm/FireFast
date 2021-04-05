@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
   s.dependency 'Firebase/Analytics'
   s.dependency 'Firebase/Auth'
   s.dependency 'GoogleSignIn'
+  s.dependency 'Firebase/Storage'
   s.dependency 'Firebase/Firestore'
   s.dependency 'FBSDKLoginKit'
   s.pod_target_xcconfig = {

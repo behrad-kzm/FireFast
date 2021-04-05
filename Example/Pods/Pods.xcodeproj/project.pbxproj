@@ -164,6 +164,7 @@
 		048891A225E94E3000198AD4 /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048891A125E94E3000198AD4 /* ErrorCodes.swift */; };
 		048D32F22018CBFA8C35BD77B129B806 /* not_in_filter.cc in Sources */ = {isa = PBXBuildFile; fileRef = F47DC8F4FD99024CA97921B4F9CD8F4B /* not_in_filter.cc */; settings = {COMPILER_FLAGS = "$(inherited) -Wreorder -Werror=reorder -Wno-comma -fno-objc-arc"; }; };
 		049DD8069C7D0D231E4218BFE3C5473A /* ssl_key_share.cc in Sources */ = {isa = PBXBuildFile; fileRef = CBA0C5209FDFC511EB97ADF8A433D42E /* ssl_key_share.cc */; settings = {COMPILER_FLAGS = "-DOPENSSL_NO_ASM -GCC_WARN_INHIBIT_ALL_WARNINGS -w -fno-objc-arc"; }; };
+		04A4FDB2261B64A40030741D /* StorageUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4FD96261B63090030741D /* StorageUseCases.swift */; };
 		04CEEF35BE11C3BB36421AFAB03C7D14 /* log_severity.h in Headers */ = {isa = PBXBuildFile; fileRef = BF180ACBB3CD401F0A5EAF648B5134E9 /* log_severity.h */; };
 		04D1E2A2FE38E2D1B102C7E3C004037C /* alts_grpc_record_protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E09A045252E1FFB8A0C79128F54861 /* alts_grpc_record_protocol.h */; };
 		04F569B3C65B3AFF5867A8A7CE408BC6 /* stream_map.h in Headers */ = {isa = PBXBuildFile; fileRef = CB19682D934A579D7E267FB2A2E43D9F /* stream_map.h */; };
@@ -9171,6 +9172,7 @@
 		046E7D13B24C2114560235B3310210BE /* rsa.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = rsa.c; path = src/crypto/fipsmodule/rsa/rsa.c; sourceTree = "<group>"; };
 		047A113D8A02FFAD24B9C12D1399156C /* sync_windows.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sync_windows.h; path = include/grpc/impl/codegen/sync_windows.h; sourceTree = "<group>"; };
 		048891A125E94E3000198AD4 /* ErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
+		04A4FD96261B63090030741D /* StorageUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageUseCases.swift; sourceTree = "<group>"; };
 		04B4C5A297BFA0638FEC184B3CD751EE /* AppAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AppAuth.release.xcconfig; sourceTree = "<group>"; };
 		04BEE8C2715550F0A2F53C66E76DF3C4 /* logging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = logging.h; path = util/logging.h; sourceTree = "<group>"; };
 		04C715E351B39EB3A02FB0AA98E1D272 /* FBSDKDeviceDialogView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKDeviceDialogView.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Device/FBSDKDeviceDialogView.h; sourceTree = "<group>"; };
@@ -13014,6 +13016,14 @@
 			path = Structures;
 			sourceTree = "<group>";
 		};
+		04A4FD95261B62BE0030741D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				04A4FD96261B63090030741D /* StorageUseCases.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		04E569A67A173857951DBDADCD551327 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -15421,6 +15431,7 @@
 			children = (
 				C8316127EC923D7FC1C1434F82239D48 /* UseCaseProvider.swift */,
 				B5948FA385575DB5F62629C48902DD80 /* Auth */,
+				04A4FD95261B62BE0030741D /* Storage */,
 				046085C625E79172006C40FD /* Firesore */,
 			);
 			name = Core;
@@ -20523,7 +20534,7 @@
 				LastUpgradeCheck = 1100;
 				TargetAttributes = {
 					73CDC3D182DB953135F62609681B443D = {
-						LastSwiftMigration = 1200;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -21301,6 +21312,7 @@
 				0446468C25EECA9C00EBB98A /* DocumentSnapshot+ReadDecodable.swift in Sources */,
 				0460864F25E7967C006C40FD /* FirestoreUseCasesProtocol.swift in Sources */,
 				0446468B25EECA9C00EBB98A /* WriteBatch+WriteEncodable.swift in Sources */,
+				04A4FDB2261B64A40030741D /* StorageUseCases.swift in Sources */,
 				0446469125EECA9C00EBB98A /* Timestamp+Codable.swift in Sources */,
 				0460872A25E7E8C7006C40FD /* Codable+Ext.swift in Sources */,
 				4199BB9A058CE4D3D080DAFBB8539078 /* FacebookAuthenticationUseCase.swift in Sources */,
