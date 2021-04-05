@@ -31,4 +31,13 @@ public enum ErrorCodes {
     }
   }
   
+  public enum Storage: Int {
+    
+    case nullData
+    
+    public func code() -> Int {
+      let firestoreCode = 3000
+      return (self.rawValue + firestoreCode) * -1
+    }
+  }
 }

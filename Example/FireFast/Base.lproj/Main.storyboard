@@ -244,6 +244,88 @@
             </objects>
             <point key="canvasLocation" x="1780" y="-490"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="lYP-fI-tLo">
+            <objects>
+                <viewController id="ird-RS-7mE" customClass="StorageViewController" customModule="FireFast_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1At-Kf-ezT"/>
+                        <viewControllerLayoutGuide type="bottom" id="eyz-XN-WVb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KUT-s1-5OW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IjU-Uz-xza">
+                                <rect key="frame" x="16" y="24" width="343" height="429"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IjU-Uz-xza" secondAttribute="height" multiplier="2:2.5" id="sr9-ki-9hJ"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UGy-wh-BAY">
+                                <rect key="frame" x="87" y="572" width="201" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uom-yV-jON">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="- 1 -"/>
+                                        <connections>
+                                            <action selector="pickImage:" destination="ird-RS-7mE" eventType="touchUpInside" id="ZH8-2P-odW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzp-Or-doK">
+                                        <rect key="frame" x="50" y="0.0" width="31" height="30"/>
+                                        <state key="normal" title="- 2 -"/>
+                                        <connections>
+                                            <action selector="pickImage:" destination="ird-RS-7mE" eventType="touchUpInside" id="koN-e0-TAo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chH-mR-J1I">
+                                        <rect key="frame" x="101" y="0.0" width="31" height="30"/>
+                                        <state key="normal" title="- 3 -"/>
+                                        <connections>
+                                            <action selector="pickImage:" destination="ird-RS-7mE" eventType="touchUpInside" id="c6J-EH-yxz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcb-kq-8bm">
+                                        <rect key="frame" x="152" y="0.0" width="49" height="30"/>
+                                        <state key="normal" title="Upload"/>
+                                        <connections>
+                                            <action selector="upload:" destination="ird-RS-7mE" eventType="touchUpInside" id="rbd-b3-gRw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSa-q1-8bu">
+                                <rect key="frame" x="24" y="469" width="327" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IjU-Uz-xza" firstAttribute="centerX" secondItem="KUT-s1-5OW" secondAttribute="centerX" id="2bZ-Fr-Mei"/>
+                            <constraint firstItem="IjU-Uz-xza" firstAttribute="leading" secondItem="KUT-s1-5OW" secondAttribute="leading" constant="16" id="4cA-8t-y9n"/>
+                            <constraint firstItem="WSa-q1-8bu" firstAttribute="top" secondItem="IjU-Uz-xza" secondAttribute="bottom" constant="16" id="89W-2G-slo"/>
+                            <constraint firstItem="IjU-Uz-xza" firstAttribute="top" secondItem="1At-Kf-ezT" secondAttribute="bottom" constant="24" id="Jqh-fo-rtq"/>
+                            <constraint firstItem="UGy-wh-BAY" firstAttribute="centerX" secondItem="KUT-s1-5OW" secondAttribute="centerX" id="K0W-Th-ort"/>
+                            <constraint firstAttribute="trailing" secondItem="IjU-Uz-xza" secondAttribute="trailing" constant="16" id="Lny-pp-rvw"/>
+                            <constraint firstItem="eyz-XN-WVb" firstAttribute="top" secondItem="UGy-wh-BAY" secondAttribute="bottom" constant="16" id="Npd-qZ-TPM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WSa-q1-8bu" secondAttribute="trailing" constant="8" id="bmr-cj-Ibo"/>
+                            <constraint firstItem="WSa-q1-8bu" firstAttribute="centerX" secondItem="KUT-s1-5OW" secondAttribute="centerX" id="e1z-vW-ifc"/>
+                            <constraint firstItem="WSa-q1-8bu" firstAttribute="leading" secondItem="KUT-s1-5OW" secondAttribute="leadingMargin" constant="8" id="mLx-zp-zff"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="nml-o6-FBu"/>
+                    <connections>
+                        <outlet property="imageView" destination="IjU-Uz-xza" id="StW-ve-5os"/>
+                        <outlet property="urlLabel" destination="WSa-q1-8bu" id="gCh-DH-kJh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Tp-dF-Hw3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2740" y="-127"/>
+        </scene>
         <!--Firestore-->
         <scene sceneID="vao-lu-gsG">
             <objects>
@@ -283,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzR-3g-iDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="234"/>
+            <point key="canvasLocation" x="1780" y="269"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="DSH-Q2-tpf">
@@ -298,6 +380,7 @@
                     <connections>
                         <segue destination="H4o-yt-rfJ" kind="relationship" relationship="viewControllers" id="s6F-XY-uiM"/>
                         <segue destination="UMm-pe-CNL" kind="relationship" relationship="viewControllers" id="XGo-62-Ykx"/>
+                        <segue destination="ird-RS-7mE" kind="relationship" relationship="viewControllers" id="qg9-2b-3Qi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kug-Ub-miL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

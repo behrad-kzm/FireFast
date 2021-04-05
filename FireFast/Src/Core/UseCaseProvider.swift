@@ -11,7 +11,6 @@ import GoogleSignIn
 import FBSDKCoreKit
 
 public struct UseCaseProvider: CloudUseCaseProvider {
-  
   public static func application(application: UIApplication, didFinishLaunchingWithOptions launchingOptions: [UIApplication.LaunchOptionsKey : Any]?){
     FirebaseApp.configure()
     ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchingOptions)
@@ -30,5 +29,9 @@ public struct UseCaseProvider: CloudUseCaseProvider {
   
   public static func makeFirestoreUseCases() -> FirestoreUseCasesProtocol {
     return FirestoreUseCases()
+  }
+  
+  public static func makeStorageUseCases(_ path: String?) -> StorageUseCaseProtocol {
+    return StorageUseCases(bucketURLPath: path)
   }
 }

@@ -246,6 +246,9 @@ PODS:
   - Firebase/Firestore (7.6.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 7.6.0)
+  - Firebase/Storage (7.6.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 7.6.0)
   - FirebaseAnalytics (7.6.0):
     - FirebaseCore (~> 7.0)
     - FirebaseInstallations (~> 7.0)
@@ -286,11 +289,15 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/UserDefaults (~> 7.0)
     - PromisesObjC (~> 1.2)
-  - FireFast (0.1.8):
+  - FirebaseStorage (7.6.0):
+    - FirebaseCore (~> 7.0)
+    - GTMSessionFetcher/Core (~> 1.4)
+  - FireFast (0.2.6):
     - FBSDKLoginKit
     - Firebase/Analytics
     - Firebase/Auth
     - Firebase/Firestore
+    - Firebase/Storage
     - GoogleSignIn
   - GoogleAppMeasurement (7.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
@@ -380,6 +387,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
     - FirebaseInstallations
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleSignIn
@@ -409,7 +417,8 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: ee1184d51da3293335b83355aad20f537acc24cf
   FirebaseFirestore: b860346d5095c741528efac94995bab39275d0bf
   FirebaseInstallations: 6e4e77396559bc2ae0504823837ed737b1c7e47f
-  FireFast: 9233c5840c06b95646b6edb64ad25fce9dca41a8
+  FirebaseStorage: 47890c9607e58b3046f072538c8c1ca4db2b0940
+  FireFast: 733a3ea1dc1a8273eb88dfedeec1f2add755271d
   GoogleAppMeasurement: c542a2feaac9ab98fd074e8f1a02c3585bbfbd47
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
@@ -424,4 +433,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3a93323aff44bd531b3d17589adc4d1d80b67df7
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
