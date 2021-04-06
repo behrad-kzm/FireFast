@@ -24,22 +24,26 @@ public struct StorageUseCases: StorageUseCaseProtocol {
   
   public func upload(data: Data, path: String, onSuccess: @escaping (UploadInfoModel) -> Void, onError: ((Error) -> Void)?){
     let fileReference = storageReference.child(path)
-    fileReference.putData(data, metadata: nil) { [fileReference](metaData, error) in
+    fileReference.putData(data, metadata: nil) { (metaData, error) in
       guard let metadata = metaData else {
         let metaDataError = NSError(domain: "Metadata for uploaded file is null", code: ErrorCodes.Storage.nullData.code(), userInfo: nil)
         onError?(metaDataError)
         return
       }
-      fileReference.downloadURL { [onError](url, error) in
-        guard let downloadURL = url else {
-          let urlError = NSError(domain: "Download url for the file is null", code: ErrorCodes.Storage.nullData.code(), userInfo: nil)
-          onError?(urlError)
-          return
-        }
-        let info = UploadInfoModel(size: Int(metadata.size), path: downloadURL.absoluteString, updatedAt: metadata.updated, createdAt: metadata.timeCreated, contentType: metadata.contentType)
-        onSuccess(info)
+      let info = UploadInfoModel(size: Int(metadata.size), path: path, updatedAt: metadata.updated, createdAt: metadata.timeCreated, contentType: metadata.contentType)
+      onSuccess(info)
+    }
+  }
+  
+  public func makeURL(path: String, onSuccess: @escaping (URL) -> Void, onError: ((Error) -> Void)?) {
+    let fileReference = storageReference.child(path)
+    fileReference.downloadURL { (url, error) in
+      guard let downloadURL = url else {
+        let urlError = NSError(domain: "Download url for the file is null", code: ErrorCodes.Storage.nullData.code(), userInfo: nil)
+        onError?(urlError)
+        return
       }
-
+      onSuccess(downloadURL)
     }
   }
 }
