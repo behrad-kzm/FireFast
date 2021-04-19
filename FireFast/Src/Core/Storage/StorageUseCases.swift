@@ -46,4 +46,9 @@ public struct StorageUseCases: StorageUseCaseProtocol {
       onSuccess(downloadURL)
     }
   }
+  
+  public func delete(path: String, completion: ((Error?) -> Void)?) {
+    let fileReference = storageReference.child(path)
+    fileReference.delete(completion: completion)
+  }
 }

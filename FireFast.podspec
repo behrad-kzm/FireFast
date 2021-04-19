@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireFast'
-  s.version          = '0.3.1'
+  s.version          = '0.3.2'
   s.summary          = 'Working with the FireBase library without any effort.'
 
   s.description      = <<-DESC

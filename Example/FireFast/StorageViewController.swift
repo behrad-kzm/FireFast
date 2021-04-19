@@ -29,7 +29,6 @@ class StorageViewController: UIViewController, UIImagePickerControllerDelegate, 
       } onError: { (error) in
         print("Error", error)
       }
-
     }
   }
 }
