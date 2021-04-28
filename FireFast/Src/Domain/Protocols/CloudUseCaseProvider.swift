@@ -16,4 +16,5 @@ public protocol CloudUseCaseProvider {
   static func makeAuthUseCases() -> AuthUseCasesProtocol
   static func makeFirestoreUseCases() -> FirestoreUseCasesProtocol
   static func makeStorageUseCases(_ path: String?) -> StorageUseCaseProtocol
+  static func makeCloudFunctionUseCases() -> FunctionUseCasesProtocol
 }

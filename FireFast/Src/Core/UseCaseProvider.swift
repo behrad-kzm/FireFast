@@ -34,4 +34,8 @@ public struct UseCaseProvider: CloudUseCaseProvider {
   public static func makeStorageUseCases(_ path: String?) -> StorageUseCaseProtocol {
     return StorageUseCases(bucketURLPath: path)
   }
+  
+  public static func makeCloudFunctionUseCases() -> FunctionUseCasesProtocol {
+    return FunctionUseCases()
+  }
 }

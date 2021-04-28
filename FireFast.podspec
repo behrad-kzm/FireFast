@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireFast'
-  s.version          = '0.3.2'
+  s.version          = '0.4.0'
   s.summary          = 'Working with the FireBase library without any effort.'
 
   s.description      = <<-DESC
@@ -32,6 +32,7 @@ Pod::Spec.new do |s|
   s.dependency 'Firebase/Auth'
   s.dependency 'GoogleSignIn'
   s.dependency 'Firebase/Storage'
+  s.dependency 'Firebase/Functions'
   s.dependency 'Firebase/Firestore'
   s.dependency 'FBSDKLoginKit'
   s.pod_target_xcconfig = {
