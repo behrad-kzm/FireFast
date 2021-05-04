@@ -17,4 +17,5 @@ public protocol CloudUseCaseProvider {
   static func makeFirestoreUseCases() -> FirestoreUseCasesProtocol
   static func makeStorageUseCases(_ path: String?) -> StorageUseCaseProtocol
   static func makeCloudFunctionUseCases() -> FunctionUseCasesProtocol
+  static func makeRemoteConfigUseCases(fetchInterval interval: TimeInterval) -> RemoteConfigUseCasesProtocol
 }

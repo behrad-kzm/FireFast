@@ -15,8 +15,8 @@ public enum ErrorCodes {
     case nullData
     
     public func code() -> Int {
-      let firestoreCode = 1000
-      return (self.rawValue + firestoreCode) * -1
+      let authorizationErrorCode = 1000
+      return (self.rawValue + authorizationErrorCode) * -1
     }
   }
   
@@ -26,8 +26,8 @@ public enum ErrorCodes {
     case needInitialize
     
     public func code() -> Int {
-      let firestoreCode = 2000
-      return (self.rawValue + firestoreCode) * -1
+      let firestoreErrorCode = 2000
+      return (self.rawValue + firestoreErrorCode) * -1
     }
   }
   
@@ -36,8 +36,19 @@ public enum ErrorCodes {
     case nullData
     
     public func code() -> Int {
-      let firestoreCode = 3000
-      return (self.rawValue + firestoreCode) * -1
+      let storageErrorCode = 3000
+      return (self.rawValue + storageErrorCode) * -1
+    }
+  }
+  
+  public enum RemoteConfig: Int {
+    
+    case codable
+    case unknown
+    
+    public func code() -> Int {
+      let remoteConfigErrorCode = 4000
+      return (self.rawValue + remoteConfigErrorCode) * -1
     }
   }
 }

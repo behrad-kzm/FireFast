@@ -38,4 +38,8 @@ public struct UseCaseProvider: CloudUseCaseProvider {
   public static func makeCloudFunctionUseCases() -> FunctionUseCasesProtocol {
     return FunctionUseCases()
   }
+  
+  public static func makeRemoteConfigUseCases(fetchInterval interval: TimeInterval) -> RemoteConfigUseCasesProtocol {
+    return RemoteConfigUseCase(fetchInterval: interval)
+  }
 }

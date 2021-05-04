@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FireFast'
-  s.version          = '0.4.0'
+  s.version          = '0.5.0'
   s.summary          = 'Working with the FireBase library without any effort.'
 
   s.description      = <<-DESC
@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
   s.dependency 'Firebase/Storage'
   s.dependency 'Firebase/Functions'
   s.dependency 'Firebase/Firestore'
+  s.dependency 'Firebase/RemoteConfig'
   s.dependency 'FBSDKLoginKit'
   s.pod_target_xcconfig = {
       'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
