@@ -78,7 +78,10 @@ public struct GenericCollection<T: Codable> {
   }
   
   public func upsert(document: T, withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
-    let dictionary = try! document.asDictionary().castToFirebase()
+    var dictionary = try! document.asDictionary()
+    
+    dictionary = dictionary.castToFirebase()
+    
     upsert(dictionary: dictionary, completionHandler: completionHandler)
   }
   
@@ -100,13 +103,13 @@ public struct GenericCollection<T: Codable> {
       query[element] = FieldValue.delete()
     }
     base.document(id).updateData(query) { err in
-       completionHandler?(err)
+      completionHandler?(err)
     }
   }
   
   public func delete(documentId id: String, completionHandler: ((Error?) -> Void)?){
     base.document(id).delete() { err in
-       completionHandler?(err)
+      completionHandler?(err)
     }
   }
 }

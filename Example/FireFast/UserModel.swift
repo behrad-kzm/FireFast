@@ -15,6 +15,7 @@ public struct UserModel: Codable{
   public let currentLocation: GeoPoint
   public let name: String
   public let birthDate: Timestamp?
+  public let serverTime: CodableServerTimestamp?
   public let email: String
   public let path: String
 }

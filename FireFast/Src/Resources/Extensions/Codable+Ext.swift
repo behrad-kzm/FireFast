@@ -68,6 +68,12 @@ extension Dictionary where Key == String, Value: Any {
         continue
       }
       
+      if let _: FieldValueServerTimestamp = currentValue.object() {
+        
+        resultDictionary[key] = FieldValue.serverTimestamp() as? Value
+        continue
+      }
+      
       if let newValue = resultDictionary[key] as? DocumentReference {
         let castedReference = newValue.path
         resultDictionary[key] = castedReference as? Value

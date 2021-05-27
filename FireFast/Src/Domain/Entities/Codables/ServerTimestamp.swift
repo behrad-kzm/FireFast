@@ -113,41 +113,32 @@ import FirebaseFirestore
 ///
 /// Wraps a `Timestamp` field to mark that it should be populated with a server
 /// timestamp. If a `Codable` object being written contains a `.pending` for an
-/// `Swift4ServerTimestamp` field, it will be replaced with
+/// `CodableServerTimestamp` field, it will be replaced with
 /// `FieldValue.serverTimestamp()` as it is sent.
 ///
 /// Example:
 /// ```
 /// struct CustomModel {
-///   var ts: Swift4ServerTimestamp
+///   var ts: CodableServerTimestamp
 /// }
 /// ```
 ///
-/// Then `CustomModel(ts: .pending)` will tell server to fill `ts` with current
+/// Then `CustomModel(ts: .fillByServer)` will tell server to fill `ts` with current
 /// timestamp.
-@available(swift, deprecated: 5.1)
-public enum Swift4ServerTimestamp: Codable, Equatable {
-  /// When being read (decoded) from Firestore, NSNull values will be mapped to
-  /// `pending`. When being written (encoded) to Firestore, `pending` means
-  /// requesting server to set timestamp on the field (essentially setting value
-  /// to FieldValue.serverTimestamp()).
-  case pending
+
+public enum CodableServerTimestamp: Codable, Equatable {
+  case fillByServer
 
   /// When being read (decoded) from Firestore, non-nil Timestamp will be mapped
-  /// to `resolved`. When being written (encoded) to Firestore,
-  /// `resolved(stamp)` will set the field value to `stamp`.
-  case resolved(Timestamp)
+  /// to `decoded`. When being written (encoded) to Firestore,
+  /// `decoded(stamp)` will set the field value to `stamp`.
+  case decoded(Timestamp)
 
-  /// Returns this value as an `Optional<Timestamp>`.
-  ///
-  /// If the server timestamp is still pending, the returned optional will be
-  /// `.none`. Once resolved, the returned optional will be `.some` with the
-  /// resolved timestamp.
   public var timestamp: Timestamp? {
     switch self {
-    case .pending:
+    case .fillByServer:
       return .none
-    case let .resolved(timestamp):
+    case let .decoded(timestamp):
       return .some(timestamp)
     }
   }
@@ -155,20 +146,22 @@ public enum Swift4ServerTimestamp: Codable, Equatable {
   public init(from decoder: Decoder) throws {
     let container = try decoder.singleValueContainer()
     if container.decodeNil() {
-      self = .pending
+      self = .fillByServer
     } else {
       let value = try container.decode(Timestamp.self)
-      self = .resolved(value)
+      self = .decoded(value)
     }
   }
 
   public func encode(to encoder: Encoder) throws {
     var container = encoder.singleValueContainer()
     switch self {
-    case .pending:
-      try container.encode(FieldValue.serverTimestamp())
-    case let .resolved(value: value):
+    case .fillByServer:
+      try container.encode(FieldValueServerTimestamp())
+    case let .decoded(value: value):
       try container.encode(value)
     }
   }
 }
+
+public struct FieldValueServerTimestamp: Codable {}
