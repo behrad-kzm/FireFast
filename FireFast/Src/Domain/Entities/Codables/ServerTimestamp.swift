@@ -113,20 +113,20 @@ import FirebaseFirestore
 ///
 /// Wraps a `Timestamp` field to mark that it should be populated with a server
 /// timestamp. If a `Codable` object being written contains a `.pending` for an
-/// `CodableServerTimestamp` field, it will be replaced with
+/// `FieldValueServerTimestamp` field, it will be replaced with
 /// `FieldValue.serverTimestamp()` as it is sent.
 ///
 /// Example:
 /// ```
 /// struct CustomModel {
-///   var ts: CodableServerTimestamp
+///   var ts: FieldValueServerTimestamp
 /// }
 /// ```
 ///
 /// Then `CustomModel(ts: .fillByServer)` will tell server to fill `ts` with current
 /// timestamp.
 
-public enum CodableServerTimestamp: Codable, Equatable {
+public enum FieldValueServerTimestamp: Codable, Equatable {
   case fillByServer
 
   /// When being read (decoded) from Firestore, non-nil Timestamp will be mapped
@@ -157,11 +157,11 @@ public enum CodableServerTimestamp: Codable, Equatable {
     var container = encoder.singleValueContainer()
     switch self {
     case .fillByServer:
-      try container.encode(FieldValueServerTimestamp())
+      try container.encode(DummyServerTimestamp())
     case let .decoded(value: value):
       try container.encode(value)
     }
   }
 }
 
-public struct FieldValueServerTimestamp: Codable {}
+public struct DummyServerTimestamp: Codable {}

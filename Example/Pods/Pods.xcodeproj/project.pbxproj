@@ -169,6 +169,9 @@
 		04750CDEDD60DB1AAFA5B8377128C5E3 /* transport_security_grpc.h in Copy src/core/tsi Private Headers */ = {isa = PBXBuildFile; fileRef = 7E17CAACC6F3A7BA4E8A96F234A49C60 /* transport_security_grpc.h */; };
 		0484530F4ACDAAFE2B7A7F1D7CCACFEC /* internal.h in Copy crypto/pool Private Headers */ = {isa = PBXBuildFile; fileRef = 5ECF77E57F729BBEFAF9466A300BEAB3 /* internal.h */; };
 		049A04BD04A26573D2B37B1E0632778C /* firebase_metadata_provider_apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4BC92ADBA9F1D86E372365198743AB1A /* firebase_metadata_provider_apple.mm */; settings = {COMPILER_FLAGS = "$(inherited) -Wreorder -Werror=reorder -Wno-comma"; }; };
+		049B62F626629F280069B452 /* RealtimeDataBaseUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B62B826629E850069B452 /* RealtimeDataBaseUseCases.swift */; };
+		049B63172662A5DE0069B452 /* RealtimeDataBaseUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B63162662A5DE0069B452 /* RealtimeDataBaseUseCasesProtocol.swift */; };
+		049B63362662A9630069B452 /* RealtimeDataBaseUseCasesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B63162662A5DE0069B452 /* RealtimeDataBaseUseCasesProtocol.swift */; };
 		049C93B56847F4AF521AF7CC1029C315 /* plugin_credentials.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2A3BE9E04A21BD0B053C30CCC70F55 /* plugin_credentials.h */; };
 		049DD8069C7D0D231E4218BFE3C5473A /* ssl_key_share.cc in Sources */ = {isa = PBXBuildFile; fileRef = 625BD06BCE497B2D66D00778A309BC94 /* ssl_key_share.cc */; settings = {COMPILER_FLAGS = "-DOPENSSL_NO_ASM -GCC_WARN_INHIBIT_ALL_WARNINGS -w -fno-objc-arc"; }; };
 		04A8F4A3462A64F93FCCB45D3DDC36B4 /* endpoint.upb.h in Headers */ = {isa = PBXBuildFile; fileRef = F41792C7DB6AD4D33E4C761E68950435 /* endpoint.upb.h */; };
@@ -9470,6 +9473,8 @@
 		04482B13DEE290382294E82E6B5FEA13 /* RCNConfigContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RCNConfigContent.h; path = FirebaseRemoteConfig/Sources/RCNConfigContent.h; sourceTree = "<group>"; };
 		0490CDCBF40A3D37442636CE9FCA3BA4 /* FIRFieldValue.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = FIRFieldValue.mm; path = Firestore/Source/API/FIRFieldValue.mm; sourceTree = "<group>"; };
 		049513B9D8F774D299861FAC3AEF5CCE /* check_gcp_environment_windows.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = check_gcp_environment_windows.cc; path = src/core/lib/security/credentials/alts/check_gcp_environment_windows.cc; sourceTree = "<group>"; };
+		049B62B826629E850069B452 /* RealtimeDataBaseUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDataBaseUseCases.swift; sourceTree = "<group>"; };
+		049B63162662A5DE0069B452 /* RealtimeDataBaseUseCasesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDataBaseUseCasesProtocol.swift; sourceTree = "<group>"; };
 		049C7977495E83FD4A865B5162DC67DB /* FBSDKMeasurementEvent_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKMeasurementEvent_Internal.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKMeasurementEvent_Internal.h; sourceTree = "<group>"; };
 		04AB5668A11FFEB446EABBC2B62788AE /* FIRVerifyPasswordResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FIRVerifyPasswordResponse.m; path = FirebaseAuth/Sources/Backend/RPC/FIRVerifyPasswordResponse.m; sourceTree = "<group>"; };
 		04B10788272743D4C403CF4E4D1D476F /* internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = internal.h; path = src/crypto/fipsmodule/des/internal.h; sourceTree = "<group>"; };
@@ -13467,6 +13472,22 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		049B62B7266296710069B452 /* RealtimeDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				049B62B826629E850069B452 /* RealtimeDataBaseUseCases.swift */,
+			);
+			path = RealtimeDataBase;
+			sourceTree = "<group>";
+		};
+		049B63152662A5A30069B452 /* RealtimeDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				049B63162662A5DE0069B452 /* RealtimeDataBaseUseCasesProtocol.swift */,
+			);
+			path = RealtimeDataBase;
+			sourceTree = "<group>";
+		};
 		056744BF465C3521F72C902339852304 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -14204,6 +14225,7 @@
 			isa = PBXGroup;
 			children = (
 				438B004C6F6C2E4CB06B40C134E0E7DF /* UseCaseProvider.swift */,
+				049B62B7266296710069B452 /* RealtimeDataBase */,
 				B30FBBF0FA2265128E24213646D78084 /* Auth */,
 				63F4C084A703E50790625EF397EDA7DF /* CloudFunction */,
 				94251A55A5153AE95A99A56D6B873BA0 /* Firesore */,
@@ -16113,6 +16135,7 @@
 			isa = PBXGroup;
 			children = (
 				E19FDD743D4DA7EE8EFD5953B18A0624 /* CloudUseCaseProvider.swift */,
+				049B63152662A5A30069B452 /* RealtimeDataBase */,
 				0F476D201F6E7EB90F88E592E3E87A83 /* Auth */,
 				0FABA97D837627B8EB8246C84979FCFA /* CloudFunction */,
 				AF89FDAF9F703D12516038A48184D8C8 /* Firestore */,
@@ -23168,6 +23191,7 @@
 				1CAA0CC19A0F4EDDDF991746DC976E16 /* FireFast-dummy.m in Sources */,
 				C7916573D091FFB45268E792BA4AF935 /* FirestoreDecoder.swift in Sources */,
 				462247C80C48A4A4FCD0CE35FC4419AB /* FirestoreEncoder.swift in Sources */,
+				049B63362662A9630069B452 /* RealtimeDataBaseUseCasesProtocol.swift in Sources */,
 				2E4B811504520E15A7F982D90F707465 /* FirestoreUseCases.swift in Sources */,
 				37D335EE35C9277F429915097CF8A0DD /* FirestoreUseCasesProtocol.swift in Sources */,
 				4AA59713FB48A92B2C51CD339EC7CB98 /* FunctionUseCases.swift in Sources */,
@@ -23191,6 +23215,7 @@
 				AC9526A020061BF4032D22D020C2DC5C /* StorageUseCases.swift in Sources */,
 				0925FA1EEC1FD0B04A3D3C009BA25816 /* Timestamp+Codable.swift in Sources */,
 				B91F25DC72BFC6D5163831DFF90BAE07 /* Transaction+WriteEncodable.swift in Sources */,
+				049B62F626629F280069B452 /* RealtimeDataBaseUseCases.swift in Sources */,
 				807930FE86BF51A9EBB1141D3958D2F9 /* UploadInfoModel.swift in Sources */,
 				46B221413CD87241E02D9E382BA7A19E /* UseCaseProvider.swift in Sources */,
 				158C03EAD80E672BB38E19F55FD32E54 /* Utils.swift in Sources */,
@@ -23651,6 +23676,7 @@
 				737A580C042B030883A7A07EE721E71F /* time_zone_fixed.cc in Sources */,
 				214CB8C88A0074B4D20C3CECA9F4E6A7 /* time_zone_format.cc in Sources */,
 				0BD4EC9BE333433853FF72DF5CB02B1D /* time_zone_if.cc in Sources */,
+				049B63172662A5DE0069B452 /* RealtimeDataBaseUseCasesProtocol.swift in Sources */,
 				024C37AB1BB76CA9446A19A6140ED577 /* time_zone_impl.cc in Sources */,
 				D32ED16D160265047C8EB08018EF8FF5 /* time_zone_info.cc in Sources */,
 				786B6D90162FA8DC4C6088190298DFCD /* time_zone_libc.cc in Sources */,

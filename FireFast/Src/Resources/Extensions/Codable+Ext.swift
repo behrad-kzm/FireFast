@@ -68,7 +68,7 @@ extension Dictionary where Key == String, Value: Any {
         continue
       }
       
-      if let _: FieldValueServerTimestamp = currentValue.object() {
+      if let _: DummyServerTimestamp = currentValue.object() {
         
         resultDictionary[key] = FieldValue.serverTimestamp() as? Value
         continue
