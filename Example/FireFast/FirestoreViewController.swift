@@ -25,8 +25,10 @@ class FirestoreViewController: UIViewController {
     }
   }
   @IBAction func setQuery(_ sender: Any) {
+    let insertableDocument = UserModel(currentLocation: GeoPoint(latitude: 37, longitude: 53), name: "Behrad", birthDate: Timestamp(seconds: Int64(Date.timeIntervalSinceReferenceDate), nanoseconds: 0), serverTime: .fillByServer, email: "bez@bezbes.com", path: "/users/test", data: MetaData(uid: UUID().uuidString, creationDate: .fillByServer))
+    
     let collection = FireFast.UseCaseProvider.makeFirestoreUseCases().collection(forType: UserModel.self, collectionName: "users")
-    collection.upsert(document: UserModel(currentLocation: GeoPoint(latitude: 37, longitude: 53), name: "Behrad", birthDate: Timestamp(seconds: Int64(Date.timeIntervalSinceReferenceDate), nanoseconds: 0), serverTime: .fillByServer, email: "bez@bezbes.com", path: "/users/test"), completionHandler: { (error) in
+    collection.upsert(document: insertableDocument, completionHandler: { (error) in
       print("BOOOOK", error)
     })
   }

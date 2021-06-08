@@ -164,4 +164,6 @@ public enum FieldValueServerTimestamp: Codable, Equatable {
   }
 }
 
-public struct DummyServerTimestamp: Codable {}
+public struct DummyServerTimestamp: Codable {
+  var dummyServerTimestampUID = UUID().uuidString
+}

@@ -18,4 +18,10 @@ public struct UserModel: Codable{
   public let serverTime: FieldValueServerTimestamp?
   public let email: String
   public let path: String
+  public let data: MetaData
+}
+
+public struct MetaData: Codable {
+  public let uid: String
+  public let creationDate: FieldValueServerTimestamp?
 }
