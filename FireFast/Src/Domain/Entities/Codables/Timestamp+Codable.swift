@@ -33,8 +33,8 @@ private protocol CodableTimestamp: Codable {
 
 /** The keys in a Timestamp. Must match the properties of CodableTimestamp. */
 private enum TimestampKeys: String, CodingKey {
-  case seconds
-  case nanoseconds
+  case seconds = "_seconds"
+  case nanoseconds = "_nanoseconds"
 }
 
 /**
