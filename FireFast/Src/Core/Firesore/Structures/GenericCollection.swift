@@ -46,7 +46,7 @@ public struct GenericCollection<T: Codable> {
         return
       }
       let result = querySnapshot!.documents.compactMap { (document) -> T? in
-        return document.data().object()
+        return document.data().castToCodables().object()
       }
       onSuccess(result)
       return
@@ -60,7 +60,7 @@ public struct GenericCollection<T: Codable> {
         return
       }
       let result = querySnapshot!.documents.compactMap { (document) -> T? in
-        return document.data().object()
+        return document.data().castToCodables().object()
       }
       onSuccess(result)
       return
@@ -70,12 +70,12 @@ public struct GenericCollection<T: Codable> {
   public func upsert(dictionary: [String: Any], withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
     if let id = id {
       
-      base.document(id).setData(dictionary.castToCodables()) { (error) in
+      base.document(id).setData(dictionary.castToFirebase()) { (error) in
         completionHandler?(error)
       }
       return
     }
-    base.addDocument(data: dictionary)
+    base.addDocument(data: dictionary.castToFirebase())
   }
   
   public func upsert(document: T, withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
@@ -93,7 +93,7 @@ public struct GenericCollection<T: Codable> {
   
   public func update(fields: [String: Any], forDocumentId id: String, completionHandler: ((Error?) -> Void)?){
     let doc = base.document(id)
-    doc.updateData(fields.castToCodables()) { (error) in
+    doc.updateData(fields.castToFirebase()) { (error) in
       completionHandler?(error)
     }
   }

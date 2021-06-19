@@ -45,7 +45,10 @@ extension Dictionary where Key == String, Value: Any {
         let castedReference = val.path
         resultDictionary[key] = castedReference as? Value
       }
-
+      
+      if let val = resultDictionary[key] as? [String: Any] {
+        resultDictionary[key] = val.castToCodables() as? Value
+      }
     }
     return resultDictionary
   }
