@@ -69,7 +69,8 @@ public struct GenericCollection<T: Codable> {
   
   public func upsert(dictionary: [String: Any], withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
     if let id = id {
-      base.document(id).setData(dictionary) { (error) in
+      
+      base.document(id).setData(dictionary.castToCodables()) { (error) in
         completionHandler?(error)
       }
       return
@@ -92,7 +93,7 @@ public struct GenericCollection<T: Codable> {
   
   public func update(fields: [String: Any], forDocumentId id: String, completionHandler: ((Error?) -> Void)?){
     let doc = base.document(id)
-    doc.updateData(fields) { (error) in
+    doc.updateData(fields.castToCodables()) { (error) in
       completionHandler?(error)
     }
   }
