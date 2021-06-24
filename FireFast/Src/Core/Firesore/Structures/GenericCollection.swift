@@ -80,14 +80,11 @@ public struct GenericCollection<T: Codable> {
   
   public func upsert(document: T, withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
     var dictionary = try! document.asDictionary()
-    
-    dictionary = dictionary.castToFirebase()
-    
     upsert(dictionary: dictionary, completionHandler: completionHandler)
   }
   
   public func update(document: T, forDocumentId id: String, completionHandler: ((Error?) -> Void)?){
-    let fields = try! document.asDictionary().castToFirebase()
+    let fields = try! document.asDictionary()
     update(fields: fields, forDocumentId: id, completionHandler: completionHandler)
   }
   
