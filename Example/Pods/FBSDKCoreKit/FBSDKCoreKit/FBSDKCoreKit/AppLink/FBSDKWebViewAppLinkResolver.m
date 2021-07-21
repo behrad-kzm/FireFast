@@ -26,8 +26,9 @@
 #import <WebKit/WebKit.h>
 
 #import "FBSDKAppLink.h"
-#import "FBSDKAppLinkTarget.h"
-#import "FBSDKInternalUtility.h"
+#import "FBSDKCoreKitBasicsImport.h"
+#import "FBSDKError.h"
+#import "NSURLSession+Protocols.h"
 
 /**
  Describes the callback for appLinkFromURLInBackground.
@@ -105,13 +106,32 @@ static NSString *const FBSDKWebViewAppLinkResolverShouldFallbackKey = @"should_f
 
 @end
 
+@interface FBSDKWebViewAppLinkResolver ()
+
+@property (nonatomic, strong) id<FBSDKSessionProviding> sessionProvider;
+
+@end
+
 @implementation FBSDKWebViewAppLinkResolver
+
+- (instancetype)init
+{
+  return [self initWithSessionProvider:NSURLSession.sharedSession];
+}
+
+- (instancetype)initWithSessionProvider:(id<FBSDKSessionProviding>)sessionProvider
+{
+  if ((self = [super init])) {
+    _sessionProvider = sessionProvider;
+  }
+  return self;
+}
 
 + (instancetype)sharedInstance {
     static id instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
+        instance = [self new];
     });
     return instance;
 }
@@ -139,16 +159,20 @@ static NSString *const FBSDKWebViewAppLinkResolverShouldFallbackKey = @"should_f
       }
     }
 
-    handler(@{ @"response" : response, @"data" : data }, nil);
+    if (data) {
+      handler(@{ @"response" : response, @"data" : data }, nil);
+    } else {
+      handler(nil, [FBSDKError unknownErrorWithMessage:@"Invalid network response - missing data"]);
+    }
   };
 
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
   [request setValue:FBSDKWebViewAppLinkResolverMetaTagPrefix forHTTPHeaderField:FBSDKWebViewAppLinkResolverPreferHeader];
 
-  NSURLSession *session = [NSURLSession sharedSession];
-  [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+  id<FBSDKSessionDataTask> task = [self.sessionProvider dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     completion(response, data, error);
-  }] resume];
+  }];
+  [task resume];
 }
 
 - (void)appLinkFromURL:(NSURL *)url handler:(FBSDKAppLinkBlock)handler
@@ -164,9 +188,9 @@ static NSString *const FBSDKWebViewAppLinkResolverShouldFallbackKey = @"should_f
             NSData *responseData = result[@"data"];
             NSHTTPURLResponse *response = result[@"response"];
             
-            WKWebView *webView = [[WKWebView alloc] init];
+            WKWebView *webView = [WKWebView new];
             
-            FBSDKWebViewAppLinkResolverWebViewDelegate *listener = [[FBSDKWebViewAppLinkResolverWebViewDelegate alloc] init];
+            FBSDKWebViewAppLinkResolverWebViewDelegate *listener = [FBSDKWebViewAppLinkResolverWebViewDelegate new];
             __block FBSDKWebViewAppLinkResolverWebViewDelegate *retainedListener = listener;
             listener.didFinishLoad = ^(WKWebView *view) {
                 if (retainedListener) {
@@ -241,14 +265,17 @@ static NSString *const FBSDKWebViewAppLinkResolverShouldFallbackKey = @"should_f
   // Run some JavaScript in the webview to fetch the meta tags.
   [webView evaluateJavaScript:FBSDKWebViewAppLinkResolverTagExtractionJavaScript
             completionHandler:^(id _Nullable evaluateResult, NSError * _Nullable error) {
-              NSString *jsonString = [evaluateResult isKindOfClass:[NSString class]] ? evaluateResult : nil;
-              error = nil;
-              NSArray<NSDictionary<NSString *, id> *> *arr =
-              [FBSDKTypeUtility JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding]
-                                              options:0
-                                                error:&error];
-              handler([self parseALData:arr]);
-            }];
+    NSString *jsonString = [evaluateResult isKindOfClass:[NSString class]] ? evaluateResult : nil;
+    error = nil;
+    NSData *encodedJSON = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    if (encodedJSON) {
+      NSArray<NSDictionary<NSString *, id> *> *arr =
+      [FBSDKTypeUtility JSONObjectWithData:encodedJSON
+                                   options:0
+                                     error:&error];
+      handler([self parseALData:arr]);
+    }
+  }];
 }
 
 /*

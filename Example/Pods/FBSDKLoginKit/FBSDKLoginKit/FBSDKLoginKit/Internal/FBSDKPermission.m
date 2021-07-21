@@ -18,17 +18,13 @@
 
 #import "FBSDKPermission.h"
 
-#ifdef FBSDKCOCOAPODS
- #import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
-#else
- #import "FBSDKCoreKit+Internal.h"
-#endif
+#import "FBSDKCoreKitBasicsImportForLoginKit.h"
 
 @implementation FBSDKPermission
 
 - (nullable instancetype)initWithString:(NSString *)string
 {
-  NSString *permission = [FBSDKTypeUtility stringValue:string];
+  NSString *permission = [FBSDKTypeUtility coercedToStringValue:string];
   if (permission.length <= 0) {
     return nil;
   }

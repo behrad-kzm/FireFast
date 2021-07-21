@@ -18,9 +18,7 @@
 
 #import "FBSDKAppEventsState.h"
 
-#import "FBSDKEventDeactivationManager.h"
-#import "FBSDKInternalUtility.h"
-#import "FBSDKRestrictiveDataFilterManager.h"
+#import "FBSDKCoreKitBasicsImport.h"
 
 #define FBSDK_APPEVENTSTATE_ISIMPLICIT_KEY @"isImplicit"
 
@@ -33,9 +31,16 @@
 #define FBSDK_APPEVENTSTATE_RECEIPTDATA_KEY @"receipt_data"
 #define FBSDK_APPEVENTSTATE_RECEIPTID_KEY @"receipt_id"
 
+static NSArray<id<FBSDKEventsProcessing>> *_eventProcessors;
+
 @implementation FBSDKAppEventsState
 {
   NSMutableArray *_mutableEvents;
+}
+
++ (void)configureWithEventProcessors:(nonnull NSArray<id<FBSDKEventsProcessing>> *)eventProcessors
+{
+  _eventProcessors = eventProcessors;
 }
 
 - (instancetype)initWithToken:(NSString *)tokenString appID:(NSString *)appID
@@ -69,7 +74,9 @@
 {
   NSString *appID = [decoder decodeObjectOfClass:[NSString class] forKey:FBSDK_APPEVENTSSTATE_APPID_KEY];
   NSString *tokenString = [decoder decodeObjectOfClass:[NSString class] forKey:FBSDK_APPEVENTSSTATE_TOKENSTRING_KEY];
-  NSArray *events = [decoder decodeObjectOfClass:[NSArray class] forKey:FBSDK_APPEVENTSSTATE_EVENTS_KEY];
+  NSArray *events = [FBSDKTypeUtility arrayValue:[decoder decodeObjectOfClasses:
+                                                  [NSSet setWithArray:@[NSArray.class, NSDictionary.class]]
+                                                                         forKey:FBSDK_APPEVENTSSTATE_EVENTS_KEY]];
   NSUInteger numSkipped = [[decoder decodeObjectOfClass:[NSNumber class] forKey:FBSDK_APPEVENTSSTATE_NUMSKIPPED_KEY] unsignedIntegerValue];
 
   if ((self = [self initWithToken:tokenString appID:appID])) {
@@ -165,14 +172,17 @@
     && [self.appID isEqualToString:appID]);
 }
 
-- (NSString *)JSONStringForEvents:(BOOL)includeImplicitEvents
+- (NSString *)JSONStringForEventsIncludingImplicitEvents:(BOOL)includeImplicitEvents
 {
-  [FBSDKEventDeactivationManager processEvents:_mutableEvents];
-  [FBSDKRestrictiveDataFilterManager processEvents:_mutableEvents];
-
+  if (_eventProcessors != nil) {
+    for (id<FBSDKEventsProcessing> processor in _eventProcessors) {
+      [processor processEvents:_mutableEvents];
+    }
+  }
   NSMutableArray *events = [[NSMutableArray alloc] initWithCapacity:_mutableEvents.count];
   for (NSDictionary *eventAndImplicitFlag in _mutableEvents) {
-    if (!includeImplicitEvents && [eventAndImplicitFlag[FBSDK_APPEVENTSTATE_ISIMPLICIT_KEY] boolValue]) {
+    const BOOL isImplicitEvent = [eventAndImplicitFlag[FBSDK_APPEVENTSTATE_ISIMPLICIT_KEY] boolValue];
+    if (!includeImplicitEvents && isImplicitEvent) {
       continue;
     }
     NSMutableDictionary *event = eventAndImplicitFlag[@"event"];
@@ -184,5 +194,15 @@
 
   return [FBSDKBasicUtility JSONStringForObject:events error:NULL invalidObjectHandler:NULL];
 }
+
+#ifdef DEBUG
+ #ifdef FBSDKTEST
++ (NSArray<id<FBSDKEventsProcessing>> *)eventProcessors
+{
+  return _eventProcessors;
+}
+
+ #endif
+#endif
 
 @end

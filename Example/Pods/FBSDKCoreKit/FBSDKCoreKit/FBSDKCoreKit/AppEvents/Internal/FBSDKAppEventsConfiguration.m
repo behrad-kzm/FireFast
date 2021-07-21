@@ -18,7 +18,7 @@
 
 #import "FBSDKAppEventsConfiguration.h"
 
-#import "FBSDKCoreKit+Internal.h"
+#import "FBSDKCoreKitBasicsImport.h"
 
 #define FBSDK_APP_EVENTS_CONFIGURATION_DEFAULT_ATE_STATUS_KEY @"default_ate_status"
 #define FBSDK_APP_EVENTS_CONFIGURATION_ADVERTISER_ID_TRACKING_ENABLED_KEY @"advertiser_id_collection_enabled"
@@ -105,12 +105,14 @@
 #pragma mark - Testability
 
 #if DEBUG
+ #if FBSDKTEST
 
 - (void)setDefaultATEStatus:(FBSDKAdvertisingTrackingStatus)status
 {
   _defaultATEStatus = status;
 }
 
+ #endif
 #endif
 
 @end

@@ -27,7 +27,9 @@
  #import "FBSDKCoreKit+Internal.h"
 #endif
 
+#import "FBSDKCoreKitBasicsImportForLoginKit.h"
 #import "FBSDKDeviceLoginCodeInfo+Internal.h"
+#import "FBSDKDeviceRequestsHelper.h"
 #import "FBSDKLoginConstants.h"
 
 static NSMutableArray<FBSDKDeviceLoginManager *> *g_loginManagerInstances;
@@ -72,7 +74,7 @@ static NSMutableArray<FBSDKDeviceLoginManager *> *g_loginManagerInstances;
                                                                  HTTPMethod:@"POST"
                                                                       flags:FBSDKGraphRequestFlagNone];
   [request setGraphErrorRecoveryDisabled:YES];
-  [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+  [request startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
     if (error) {
       [self _processError:error];
       return;
@@ -129,7 +131,7 @@ static NSMutableArray<FBSDKDeviceLoginManager *> *g_loginManagerInstances;
                                      tokenString:tokenString
                                       HTTPMethod:@"GET"
                                            flags:FBSDKGraphRequestFlagDisableErrorRecovery];
-    [permissionsRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id permissionRawResult, NSError *error) {
+    [permissionsRequest startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id permissionRawResult, NSError *error) {
       NSString *userID = permissionRawResult[@"id"];
       NSDictionary *permissionResult = permissionRawResult[@"permissions"];
       if (error
@@ -216,7 +218,7 @@ static NSMutableArray<FBSDKDeviceLoginManager *> *g_loginManagerInstances;
                                                                      HTTPMethod:@"POST"
                                                                           flags:FBSDKGraphRequestFlagNone];
       [request setGraphErrorRecoveryDisabled:YES];
-      [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+      [request startWithCompletion:^(id<FBSDKGraphRequestConnecting> connection, id result, NSError *error) {
         if (self->_isCancelled) {
           return;
         }

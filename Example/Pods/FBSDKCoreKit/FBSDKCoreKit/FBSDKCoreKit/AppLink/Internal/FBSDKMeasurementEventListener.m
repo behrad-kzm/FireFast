@@ -23,7 +23,9 @@
  #import "FBSDKMeasurementEventListener.h"
 
  #import "FBSDKAppEvents+Internal.h"
- #import "FBSDKInternalUtility.h"
+ #import "FBSDKAppEvents+SourceApplicationTracking.h"
+ #import "FBSDKCoreKitBasicsImport.h"
+ #import "FBSDKMeasurementEvent.h"
  #import "FBSDKTimeSpentData.h"
 
 static NSString *const FBSDKMeasurementEventName = @"event_name";
@@ -37,7 +39,7 @@ static NSString *const FBSDKMeasurementEventPrefix = @"bf_";
   static dispatch_once_t dispatchOnceLocker = 0;
   static FBSDKMeasurementEventListener *defaultListener = nil;
   dispatch_once(&dispatchOnceLocker, ^{
-    defaultListener = [[self alloc] init];
+    defaultListener = [self new];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:defaultListener
                selector:@selector(logFBAppEventForNotification:)
@@ -53,11 +55,11 @@ static NSString *const FBSDKMeasurementEventPrefix = @"bf_";
   if ([note.userInfo[FBSDKMeasurementEventName] isEqualToString:@"al_nav_in"]) {
     NSString *sourceApplication = note.userInfo[FBSDKMeasurementEventArgs][@"sourceApplication"];
     if (sourceApplication) {
-      [FBSDKTimeSpentData setSourceApplication:sourceApplication isFromAppLink:YES];
+      [FBSDKAppEvents.singleton setSourceApplication:sourceApplication isFromAppLink:YES];
     }
   }
   NSDictionary<NSString *, id> *eventArgs = note.userInfo[FBSDKMeasurementEventArgs];
-  NSMutableDictionary<NSString *, id> *logData = [[NSMutableDictionary alloc] init];
+  NSMutableDictionary<NSString *, id> *logData = [NSMutableDictionary new];
   for (NSString *key in eventArgs.allKeys) {
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[^0-9a-zA-Z _-]" options:0 error:&error];

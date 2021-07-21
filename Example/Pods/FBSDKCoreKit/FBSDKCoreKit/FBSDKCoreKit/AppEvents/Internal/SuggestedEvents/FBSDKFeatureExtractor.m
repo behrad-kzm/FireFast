@@ -22,8 +22,11 @@
 
  #import "FBSDKFeatureExtractor.h"
 
- #import "FBSDKCoreKit+Internal.h"
+ #import "FBSDKCoreKitBasicsImport.h"
  #import "FBSDKModelManager.h"
+ #import "FBSDKRulesFromKeyProvider.h"
+ #import "FBSDKViewHierarchy.h"
+ #import "FBSDKViewHierarchyMacros.h"
 
  #define REGEX_CR_PASSWORD_FIELD @"password"
  #define REGEX_CR_HAS_CONFIRM_PASSWORD_FIELD @"(?i)(confirm.*password)|(password.*(confirmation|confirm)|confirmation)"
@@ -43,6 +46,15 @@ static NSDictionary *_rules;
 void sum(float *val0, float *val1);
 
 @implementation FBSDKFeatureExtractor
+
+static id<FBSDKRulesFromKeyProvider> _keyProvider;
+
++ (void)configureWithRulesFromKeyProvider:(id<FBSDKRulesFromKeyProvider>)keyProvider
+{
+  if (self == FBSDKFeatureExtractor.class) {
+    _keyProvider = keyProvider;
+  }
+}
 
 + (void)initialize
 {
@@ -73,7 +85,10 @@ void sum(float *val0, float *val1);
 
 + (void)loadRulesForKey:(NSString *)useCaseKey
 {
-  _rules = [FBSDKModelManager getRulesForKey:useCaseKey];
+  BOOL isValid = [useCaseKey isKindOfClass:NSString.class];
+  if (isValid) {
+    _rules = [_keyProvider getRulesForKey:useCaseKey];
+  }
 }
 
 + (NSString *)getTextFeature:(NSString *)text
@@ -222,9 +237,9 @@ void sum(float *val0, float *val1);
 {
   float *densefeat = (float *)calloc(30, sizeof(float));
 
-  NSString *validText = [FBSDKTypeUtility stringValue:node[VIEW_HIERARCHY_TEXT_KEY]];
-  NSString *validHint = [FBSDKTypeUtility stringValue:node[VIEW_HIERARCHY_HINT_KEY]];
-  NSString *validClassName = [FBSDKTypeUtility stringValue:node[VIEW_HIERARCHY_CLASS_NAME_KEY]];
+  NSString *validText = [FBSDKTypeUtility coercedToStringValue:node[VIEW_HIERARCHY_TEXT_KEY]];
+  NSString *validHint = [FBSDKTypeUtility coercedToStringValue:node[VIEW_HIERARCHY_HINT_KEY]];
+  NSString *validClassName = [FBSDKTypeUtility coercedToStringValue:node[VIEW_HIERARCHY_CLASS_NAME_KEY]];
 
   NSString *text = [validText lowercaseString] ?: @"";
   NSString *hint = [validHint lowercaseString] ?: @"";
@@ -343,8 +358,13 @@ void sum(float *val0, float *val1)
 
 + (float)regextMatch:(NSString *)pattern text:(NSString *)text
 {
-  NSString *validText = [FBSDKTypeUtility stringValue:text];
+  NSString *validText = [FBSDKTypeUtility coercedToStringValue:text];
   if (!validText) {
+    return 0.0;
+  }
+
+  NSString *validPattern = [FBSDKTypeUtility coercedToStringValue:pattern];
+  if (!validPattern) {
     return 0.0;
   }
 
@@ -364,6 +384,22 @@ void sum(float *val0, float *val1)
   [@"positiveRules"][_textTypeInfo[textType]];
   return [self regextMatch:pattern text:matchText];
 }
+
+ #if DEBUG
+  #if FBSDKTEST
+
++ (id<FBSDKRulesFromKeyProvider>)keyProvider
+{
+  return _keyProvider;
+}
+
++ (void)reset
+{
+  _keyProvider = nil;
+}
+
+  #endif
+ #endif
 
 @end
 
