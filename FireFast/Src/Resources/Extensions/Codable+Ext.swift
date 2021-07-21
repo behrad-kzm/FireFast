@@ -53,7 +53,7 @@ extension Dictionary where Key == String, Value: Any {
     return resultDictionary
   }
   
-  func castToFirebase() -> [String: Any] {
+  public func castToFirebase() -> [String: Any] {
     
     var resultDictionary = self
     for key in resultDictionary.keys {
@@ -95,6 +95,17 @@ extension Dictionary where Key == String, Value: Any {
       return try? JSONDecoder().decode(T.self, from: data)
     } else {
       return nil
+    }
+  }
+  
+  func objectWithError<T: Decodable>() throws -> T {
+    do {
+      let data = try JSONSerialization.data(withJSONObject: self, options: [])
+      return try JSONDecoder().decode(T.self, from: data)
+
+    } catch let error {
+      let customError = NSError(domain: "[FireFast] - objectWithError", code: 400, userInfo: ["message": "Can not conver document to dictionary", "info": error])
+      throw customError
     }
   }
 }

@@ -27,13 +27,15 @@ public struct GenericCollection<T: Codable> {
       }
       if let baseDictionary = document?.data(){
         let dictionary = baseDictionary.castToCodables()
-        if let model: T = dictionary.object(){
+        do {
+          let model: T = try dictionary.objectWithError()
           onSuccess(model)
           return
+        } catch let error {
+          let customError = NSError(domain: "[FireFast] - get(documentId:onSuccess:onError:)", code: 400, userInfo: ["message": "Can not conver document to dictionary", "info": error])
+          onError?(customError)
+          return
         }
-        let error = NSError(domain: "Can't decode document to the desired type \(T.self)", code: ErrorCodes.Firestore.decodeFailure.code(), userInfo: nil)
-        onError?(error)
-        return
       }
       onSuccess(nil)
     }
@@ -45,8 +47,15 @@ public struct GenericCollection<T: Codable> {
         onError?(error)
         return
       }
+      
       let result = querySnapshot!.documents.compactMap { (document) -> T? in
-        return document.data().castToCodables().object()
+        do {
+           return try document.data().castToCodables().objectWithError()
+        } catch let error {
+          let customError = NSError(domain: "[FireFast] - getAll(onSuccess:onError:)", code: 400, userInfo: ["message": "Can not conver document to dictionary", "info": error])
+          onError?(customError)
+          return nil
+        }
       }
       onSuccess(result)
       return
@@ -60,7 +69,13 @@ public struct GenericCollection<T: Codable> {
         return
       }
       let result = querySnapshot!.documents.compactMap { (document) -> T? in
-        return document.data().castToCodables().object()
+        do {
+           return try document.data().castToCodables().objectWithError()
+        } catch let error {
+          let customError = NSError(domain: "[FireFast] - getAll(onSuccess:onError:)", code: 400, userInfo: ["message": "Can not conver document to dictionary", "info": error])
+          onError?(customError)
+          return nil
+        }
       }
       onSuccess(result)
       return
@@ -69,23 +84,35 @@ public struct GenericCollection<T: Codable> {
   
   public func upsert(dictionary: [String: Any], withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
     if let id = id {
-      
       base.document(id).setData(dictionary.castToFirebase()) { (error) in
         completionHandler?(error)
       }
       return
     }
-    base.addDocument(data: dictionary.castToFirebase())
+    base.addDocument(data: dictionary.castToFirebase(), completion: completionHandler)
   }
   
   public func upsert(document: T, withId id: String? = nil, completionHandler: ((Error?) -> Void)?){
-    var dictionary = try! document.asDictionary()
-    upsert(dictionary: dictionary, completionHandler: completionHandler)
+    
+    do {
+      let fields = try document.asDictionary()
+      upsert(dictionary: fields, withId: id, completionHandler: completionHandler)
+      return
+    } catch let error {
+      let customError = NSError(domain: "[FireFast] - upsert(document:withId:completionHandler:)", code: 400, userInfo: ["message": "Can not conver document to dictionary", "info": error])
+      completionHandler?(customError)
+    }
   }
   
   public func update(document: T, forDocumentId id: String, completionHandler: ((Error?) -> Void)?){
-    let fields = try! document.asDictionary()
-    update(fields: fields, forDocumentId: id, completionHandler: completionHandler)
+    do {
+      let fields = try document.asDictionary()
+      update(fields: fields, forDocumentId: id, completionHandler: completionHandler)
+      return
+    } catch let error {
+      let customError = NSError(domain: "[FireFast] - update(document:forDocumentId:completionHandler:)", code: 400, userInfo: ["message": "Can not conver document to dictionary", "info": error])
+      completionHandler?(customError)
+    }
   }
   
   public func update(fields: [String: Any], forDocumentId id: String, completionHandler: ((Error?) -> Void)?){
