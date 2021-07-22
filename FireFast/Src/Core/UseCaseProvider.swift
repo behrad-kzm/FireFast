@@ -20,7 +20,7 @@ public struct UseCaseProvider: CloudUseCaseProvider {
     if ApplicationDelegate.shared.application(application, open: url, options: options){
       return true
     }
-    return GIDSignIn.sharedInstance().handle(url)
+    return GIDSignIn.sharedInstance.handle(url)
   }
   
   public static func makeAuthUseCases() -> AuthUseCasesProtocol {
