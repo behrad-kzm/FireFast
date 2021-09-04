@@ -22,9 +22,14 @@ public struct StorageUseCases: StorageUseCaseProtocol {
     self.storageReference = storage.reference()
   }
   
-  public func upload(data: Data, path: String, onSuccess: @escaping (UploadInfoModel) -> Void, onError: ((Error) -> Void)?){
+  public func upload(data: Data, path: String, contentType: StorageContentType? = nil, onSuccess: @escaping (UploadInfoModel) -> Void, progressCompleted: ((Double) -> Void)?, onError: ((Error) -> Void)?) -> StorageUploadTask {
     let fileReference = storageReference.child(path)
-    fileReference.putData(data, metadata: nil) { (metaData, error) in
+    let metadata = StorageMetadata()
+    metadata.contentType = contentType?.rawValue
+    let task = fileReference.putData(data, metadata: metadata) { (metaData, error) in
+      if let error = error {
+        onError?(error)
+      }
       guard let metadata = metaData else {
         let metaDataError = NSError(domain: "Metadata for uploaded file is null", code: ErrorCodes.Storage.nullData.code(), userInfo: nil)
         onError?(metaDataError)
@@ -33,6 +38,12 @@ public struct StorageUseCases: StorageUseCaseProtocol {
       let info = UploadInfoModel(size: Int(metadata.size), path: path, updatedAt: metadata.updated, createdAt: metadata.timeCreated, contentType: metadata.contentType)
       onSuccess(info)
     }
+    task.observe(.progress) { progress in
+      if let prog = progress.progress {
+        progressCompleted?(prog.fractionCompleted)
+      }
+    }
+    return task
   }
   
   public func makeURL(path: String, onSuccess: @escaping (URL) -> Void, onError: ((Error) -> Void)?) {
