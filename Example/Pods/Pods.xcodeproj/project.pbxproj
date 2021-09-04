@@ -3573,6 +3573,7 @@
 		AC4743D57E0639E4825FA07D555AA016 /* alts_shared_resource.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9805FD5AB6003EAA4C5C5A04DE577A /* alts_shared_resource.h */; };
 		AC499CA37F5A95BA8A786244F3FBBE85 /* string.upb.h in Headers */ = {isa = PBXBuildFile; fileRef = 532DB9D7541E6A1DC5361C5FD9E12B43 /* string.upb.h */; };
 		AC49F7D705F69CE27157D829FB24C857 /* frame_rst_stream.cc in Sources */ = {isa = PBXBuildFile; fileRef = 86F1BC3DF392AA91CB3194794B07BC83 /* frame_rst_stream.cc */; settings = {COMPILER_FLAGS = "-DGRPC_ARES=0 -Wno-comma -DGRPC_SHADOW_BORINGSSL_SYMBOLS -fno-objc-arc"; }; };
+		AC4EBBE226E29ECD00771642 /* StorageContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4EBBE126E29ECD00771642 /* StorageContentType.swift */; };
 		AC541984E12EF1DD8FA563A802EADD89 /* http_server_filter.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C807B26D1AAFCD87463D954E2D2796 /* http_server_filter.h */; };
 		AC5CFA614C538902F1622ED283CB8651 /* string.upb.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEC2BF954F79C3809E890E1AF0D983A /* string.upb.h */; };
 		AC7A6953B799EA74CA25D11B00FF5762 /* x509_req.c in Sources */ = {isa = PBXBuildFile; fileRef = 2951F8AF139C2B010FC7E44FF8089498 /* x509_req.c */; settings = {COMPILER_FLAGS = "-DOPENSSL_NO_ASM -GCC_WARN_INHIBIT_ALL_WARNINGS -w -fno-objc-arc"; }; };
@@ -12590,6 +12591,7 @@
 		AC1B8C8D232DDB49364D65523C6C924A /* scoped_route.upb.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = scoped_route.upb.h; path = "src/core/ext/upb-generated/envoy/api/v2/scoped_route.upb.h"; sourceTree = "<group>"; };
 		AC1CE7366295DAE9A8DD1B6D255B4F2D /* proxy_mapper_registry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = proxy_mapper_registry.h; path = src/core/ext/filters/client_channel/proxy_mapper_registry.h; sourceTree = "<group>"; };
 		AC39C2F39E1A18C9B4CC2E5EDCE92935 /* version_set.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = version_set.cc; path = db/version_set.cc; sourceTree = "<group>"; };
+		AC4EBBE126E29ECD00771642 /* StorageContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageContentType.swift; sourceTree = "<group>"; };
 		AC59DC8EF839D4B302A2D97BFB36B6E1 /* FBSDKPasteboard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKPasteboard.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/ProtocolVersions/FBSDKPasteboard.h; sourceTree = "<group>"; };
 		AC60BB57715417F564AB93682FA2DBF7 /* grpc_posix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = grpc_posix.h; path = include/grpc/grpc_posix.h; sourceTree = "<group>"; };
 		AC90B3AB87764F9280C86CC067D23B6B /* slice_weak_hash_table.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = slice_weak_hash_table.h; path = src/core/lib/slice/slice_weak_hash_table.h; sourceTree = "<group>"; };
@@ -19381,6 +19383,7 @@
 			children = (
 				A835898A02B977611D756EA8CB385AB4 /* ErrorCodes.swift */,
 				A1172784CCF02E931C119029985D8E48 /* SignInMethodType.swift */,
+				AC4EBBE126E29ECD00771642 /* StorageContentType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -24535,6 +24538,7 @@
 				90DF89237FB883A4F8C2A47FB328C494 /* SignInMethodType.swift in Sources */,
 				A606397E25956762AD4636B98C42EC0C /* StorageUseCaseProtocol.swift in Sources */,
 				92A65EEA528ED16CF7A4FE64FC72FCE1 /* StorageUseCases.swift in Sources */,
+				AC4EBBE226E29ECD00771642 /* StorageContentType.swift in Sources */,
 				0B407CB9C6DE336D3E30CB9AEC3E768A /* Timestamp+Codable.swift in Sources */,
 				4434BF83B58550C0F67063D2EB8F61E7 /* Transaction+WriteEncodable.swift in Sources */,
 				C0C9A27019DBAB542FA69E474269641C /* UploadInfoModel.swift in Sources */,
