@@ -3578,6 +3578,7 @@
 		AC5CFA614C538902F1622ED283CB8651 /* string.upb.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEC2BF954F79C3809E890E1AF0D983A /* string.upb.h */; };
 		AC7A6953B799EA74CA25D11B00FF5762 /* x509_req.c in Sources */ = {isa = PBXBuildFile; fileRef = 2951F8AF139C2B010FC7E44FF8089498 /* x509_req.c */; settings = {COMPILER_FLAGS = "-DOPENSSL_NO_ASM -GCC_WARN_INHIBIT_ALL_WARNINGS -w -fno-objc-arc"; }; };
 		AC7DC27104492533EC096506BD87A453 /* empty.nanopb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 8209D44C0E1781F35533B1AAB37891CD /* empty.nanopb.cc */; settings = {COMPILER_FLAGS = "$(inherited) -Wreorder -Werror=reorder -Wno-comma -fno-objc-arc"; }; };
+		AC9C15D3271394B800326808 /* FireFastDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9C15D2271394B800326808 /* FireFastDecoder.swift */; };
 		AC9F4B1902C7813040D0CB4FD27C4624 /* asn1_mac.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = 274D9F61C33CF79FA96AE1D4D9A9D2A0 /* asn1_mac.h */; };
 		ACAC5068017ECDC3B4966B034E9DF56A /* alts_handshaker_client.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4D948C8608DB7F962A68D8554A8DC117 /* alts_handshaker_client.cc */; settings = {COMPILER_FLAGS = "-DGRPC_ARES=0 -Wno-comma -DGRPC_SHADOW_BORINGSSL_SYMBOLS -fno-objc-arc"; }; };
 		ACB196F4D03C82C1214A86A7A1290488 /* FIRSignUpNewUserResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 84835A3BD07F5DDBA9063229C5A09ECC /* FIRSignUpNewUserResponse.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -12596,6 +12597,7 @@
 		AC60BB57715417F564AB93682FA2DBF7 /* grpc_posix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = grpc_posix.h; path = include/grpc/grpc_posix.h; sourceTree = "<group>"; };
 		AC90B3AB87764F9280C86CC067D23B6B /* slice_weak_hash_table.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = slice_weak_hash_table.h; path = src/core/lib/slice/slice_weak_hash_table.h; sourceTree = "<group>"; };
 		AC9B0BBFB968BFAE4C2A3686A80FF055 /* ssl_key_share.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = ssl_key_share.cc; path = src/ssl/ssl_key_share.cc; sourceTree = "<group>"; };
+		AC9C15D2271394B800326808 /* FireFastDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireFastDecoder.swift; sourceTree = "<group>"; };
 		ACEDDECA1F4A9CECA0498C6B1503333D /* filter_block.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = filter_block.h; path = table/filter_block.h; sourceTree = "<group>"; };
 		ACF08BCBF69439BF6932D2D0C3CB061B /* FIRFacebookAuthCredential.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRFacebookAuthCredential.h; path = FirebaseAuth/Sources/AuthProvider/Facebook/FIRFacebookAuthCredential.h; sourceTree = "<group>"; };
 		ACF886779A2C0ABF9EED900E717F12FF /* FirebaseStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FirebaseStorage.debug.xcconfig; sourceTree = "<group>"; };
@@ -16389,6 +16391,7 @@
 			isa = PBXGroup;
 			children = (
 				6EB993A1127A12943171C9604D2861D1 /* DictionaryToCodableAdapter.swift */,
+				AC9C15D2271394B800326808 /* FireFastDecoder.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -24508,6 +24511,7 @@
 				6ED8D1B1361EE13F4E3B03AB1A3B355C /* CommonAuthProtocol.swift in Sources */,
 				F6BA6E986C9637B8E47995662E5C6E02 /* DictionaryToCodableAdapter.swift in Sources */,
 				511FAF12DB6C461293708F6075F4C34F /* DocumentID.swift in Sources */,
+				AC9C15D3271394B800326808 /* FireFastDecoder.swift in Sources */,
 				7198ACB720C44656E7D0CE2C19B64B4D /* DocumentReference+WriteEncodable.swift in Sources */,
 				271058A011BD6F39674A9744A66FD21D /* DocumentSnapshot+ReadDecodable.swift in Sources */,
 				826C5CC0105AB37BFD557647ABA29C49 /* ErrorCodes.swift in Sources */,

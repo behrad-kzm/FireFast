@@ -24,8 +24,10 @@ class StorageViewController: UIViewController, UIImagePickerControllerDelegate, 
   }
   @IBAction func upload(_ sender: Any) {
     if let image = imageView.image, let data = UIImagePNGRepresentation(image) {
-      FireFast.StorageUseCases(bucketURLPath: nil).upload(data: data, path: "image/test.png") { (info) in
+      _ = FireFast.StorageUseCases(bucketURLPath: nil).upload(data: data, path: "image/test.png") { (info) in
         print("Success", info)
+      } progressCompleted: { (progress) in
+        
       } onError: { (error) in
         print("Error", error)
       }

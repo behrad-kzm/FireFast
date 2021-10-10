@@ -61,17 +61,17 @@ extension Dictionary where Key == String, Value: Any {
         continue
       }
       
-      if let newValue: GeoPoint = currentValue.object(), let value = newValue as? Value {
+      if let newValue: GeoPoint = currentValue.object(decoder: JSONDecoder()), let value = newValue as? Value {
         resultDictionary[key] = value
         continue
       }
       
-      if let newValue: Timestamp = currentValue.object(), let value = newValue as? Value {
+      if let newValue: Timestamp = currentValue.object(decoder: JSONDecoder()), let value = newValue as? Value {
         resultDictionary[key] = value
         continue
       }
       
-      if let _: DummyServerTimestamp = currentValue.object() {
+      if let _: DummyServerTimestamp = currentValue.object(decoder: JSONDecoder()) {
         
         resultDictionary[key] = FieldValue.serverTimestamp() as? Value
         continue
@@ -90,10 +90,18 @@ extension Dictionary where Key == String, Value: Any {
     return resultDictionary
   }
   
-  func object<T: Decodable>() -> T? {
-    if let data = try? JSONSerialization.data(withJSONObject: self, options: []) {
-      return try? JSONDecoder().decode(T.self, from: data)
-    } else {
+  func object<T: Decodable>(decoder: JSONDecoder) -> T? {
+    do {
+      let data = try JSONSerialization.data(withJSONObject: self, options: [])
+      do {
+        let object = try decoder.decode(T.self, from: data)
+        return object
+      } catch let err {
+        print("error on converting to object with err: \(err)")
+        return nil
+      }
+    } catch let err {
+      print("error on converting to object with err: \(err)")
       return nil
     }
   }
@@ -102,7 +110,7 @@ extension Dictionary where Key == String, Value: Any {
     do {
       let data = try JSONSerialization.data(withJSONObject: self, options: [])
       return try JSONDecoder().decode(T.self, from: data)
-
+      
     } catch let error {
       let customError = NSError(domain: "[FireFast] - objectWithError", code: 400, userInfo: ["message": "Can not conver document to dictionary", "info": error])
       throw customError

@@ -22,6 +22,13 @@ public struct StorageUseCases: StorageUseCaseProtocol {
     self.storageReference = storage.reference()
   }
   
+  public func listAll(_ storagePath: String, completion: @escaping ([String]) -> Void) {
+    let fileReference = storageReference.child(storagePath)
+    fileReference.listAll { result, err in
+      completion(result.items.map { $0.fullPath})
+    }
+  }
+  
   public func upload(data: Data, path: String, contentType: StorageContentType? = nil, onSuccess: @escaping (UploadInfoModel) -> Void, progressCompleted: ((Double) -> Void)?, onError: ((Error) -> Void)?) -> StorageUploadTask {
     let fileReference = storageReference.child(path)
     let metadata = StorageMetadata()
@@ -49,6 +56,9 @@ public struct StorageUseCases: StorageUseCaseProtocol {
   public func makeURL(path: String, onSuccess: @escaping (URL) -> Void, onError: ((Error) -> Void)?) {
     let fileReference = storageReference.child(path)
     fileReference.downloadURL { (url, error) in
+      if let error = error {
+        onError?(error)
+      }
       guard let downloadURL = url else {
         let urlError = NSError(domain: "Download url for the file is null", code: ErrorCodes.Storage.nullData.code(), userInfo: nil)
         onError?(urlError)

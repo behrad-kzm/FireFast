@@ -21,7 +21,6 @@
 
 /* Begin PBXFileReference section */
 		00D83264C7C4E30D2376B200 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		040AD56625E5772500922A58 /* FireFast_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireFast_Example.entitlements; sourceTree = "<group>"; };
 		041E9E7425E45B540088B056 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		041E9E7A25E4647F0088B056 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0446460425EE9DCF00EBB98A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -87,7 +86,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				040AD56625E5772500922A58 /* FireFast_Example.entitlements */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for FireFast */,
 				607FACD11AFB9204008FA782 /* Products */,

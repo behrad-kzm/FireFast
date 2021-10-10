@@ -8,6 +8,5 @@
 import Foundation
 
 public protocol FunctionUseCasesProtocol {
-  
-  func call<T: Codable>(name: String, parameters: [String: Any]?, onSuccess: @escaping (T) -> Void, onError: ((Error) -> Void)?)
+  func call<T: Codable>(name: String, parameters: [String: Any]?, decoder: JSONDecoder, onSuccess: @escaping (T) -> Void, onError: ((Error) -> Void)?)
 }
