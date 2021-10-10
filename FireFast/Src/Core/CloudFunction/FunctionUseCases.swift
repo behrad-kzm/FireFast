@@ -16,7 +16,7 @@ struct FunctionUseCases: FunctionUseCasesProtocol {
         onError?(err)
         return
       }
-      if let dictionary = result?.data as? [String: Any], let model: T = dictionary.object() {
+      if let dictionary = result?.data as? [String: Any], let model: T = dictionary.object(decoder: decoder) {
         onSuccess(model)
         return
       }

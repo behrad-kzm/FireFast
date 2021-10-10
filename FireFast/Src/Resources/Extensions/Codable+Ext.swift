@@ -61,17 +61,17 @@ extension Dictionary where Key == String, Value: Any {
         continue
       }
       
-      if let newValue: GeoPoint = currentValue.object(decoder: JSONDecoder()), let value = newValue as? Value {
+      if let newValue: GeoPoint = currentValue.object(decoder: FireFastDecoder()), let value = newValue as? Value {
         resultDictionary[key] = value
         continue
       }
       
-      if let newValue: Timestamp = currentValue.object(decoder: JSONDecoder()), let value = newValue as? Value {
+      if let newValue: Timestamp = currentValue.object(decoder: FireFastDecoder()), let value = newValue as? Value {
         resultDictionary[key] = value
         continue
       }
       
-      if let _: DummyServerTimestamp = currentValue.object(decoder: JSONDecoder()) {
+      if let _: DummyServerTimestamp = currentValue.object(decoder: FireFastDecoder()) {
         
         resultDictionary[key] = FieldValue.serverTimestamp() as? Value
         continue

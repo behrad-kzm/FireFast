@@ -43,7 +43,7 @@ public class AutoPaginator<T: Codable> {
       self?.firstSnapshot = querySnapshot?.documents.first
       self?.currentSnapshot = querySnapshot?.documents.last
       let result = querySnapshot!.documents.compactMap { (document) -> T? in
-        return document.data().object()
+        return document.data().object(decoder: FireFastDecoder())
       }
       
       onSuccess(result)
@@ -72,7 +72,7 @@ public class AutoPaginator<T: Codable> {
       }
       self?.currentSnapshot = querySnapshot?.documents.last
       let result = querySnapshot!.documents.compactMap { (document) -> T? in
-        return document.data().object()
+        return document.data().object(decoder: FireFastDecoder())
       }
       
       onSuccess(result)
@@ -104,7 +104,7 @@ public class AutoPaginator<T: Codable> {
       }
       self?.firstSnapshot = querySnapshot?.documents.first
       let result = querySnapshot!.documents.compactMap { (document) -> T? in
-        return document.data().object()
+        return document.data().object(decoder: FireFastDecoder())
       }
       
       onSuccess(result)
