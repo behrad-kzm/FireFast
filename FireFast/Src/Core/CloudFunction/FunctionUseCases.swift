@@ -10,13 +10,13 @@ import FirebaseFunctions
 
 struct FunctionUseCases: FunctionUseCasesProtocol {
   
-  func call<T: Codable>(name: String, parameters: [String: Any]?, onSuccess: @escaping (T) -> Void, onError: ((Error) -> Void)?) {
+  func call<T: Codable>(name: String, parameters: [String: Any]?, decoder: JSONDecoder = FireFastDecoder(), onSuccess: @escaping (T) -> Void, onError: ((Error) -> Void)?) {
     Functions.functions().httpsCallable(name).call(parameters) { (result, err) in
       if let err = err {
         onError?(err)
         return
       }
-      if let dictionary = result?.data as? [String: Any], let model: T = dictionary.object() {
+      if let dictionary = result?.data as? [String: Any], let model: T = dictionary.object(decoder: decoder) {
         onSuccess(model)
         return
       }

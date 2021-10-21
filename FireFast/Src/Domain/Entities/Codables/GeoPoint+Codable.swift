@@ -33,8 +33,8 @@ private protocol CodableGeoPoint: Codable {
 
 /** The keys in a GeoPoint. Must match the properties of CodableGeoPoint. */
 private enum GeoPointKeys: String, CodingKey {
-  case latitude
-  case longitude
+  case latitude = "_latitude"
+  case longitude = "_longitude"
 }
 
 /**
